@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">SalwarTales</string>
+
+    <string name="user">Email or Username</string>
+    <string name="password">Password</string>
+    <string name="signin">SIGN IN</string>
+    <string name="fb">FACEBOOK LOGIN</string>
+    <string name="twitter">TWITTER LOGIN</string>
+    <string name="forgot">FORGOT YOUR PASSWORD?</string>
+    <string name="clickhere">CLICK HERE!</string>
+    <string name="signup">Sign Up</string>
+    <string name="title_activity_navigation">Navigation</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="search">Search For Products and Brands</string>
+
+
+</resources>

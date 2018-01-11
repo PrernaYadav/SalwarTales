@@ -1,0 +1,242 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.infosolution.dev.salwartales.activities.fragments.HomeFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/black"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search"
+                    android:drawableLeft="@drawable/ic_search_black_24dp"
+                    android:padding="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@android:color/white"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="center"
+                    android:weightSum="6">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tint="@android:color/white"
+                        android:src="@drawable/offer"
+                        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Best Offer"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"/>
+
+</LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tint="@android:color/white"
+                            android:src="@drawable/ic_arrival_icon"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="New Arrivels"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tint="@android:color/white"
+                            android:src="@drawable/gown"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gown"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tint="@android:color/white"
+                            android:src="@drawable/ic_cate_icon"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lahnga Choli"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tint="@android:color/white"
+                            android:src="@drawable/ic_cate_icon"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lahnga Choli"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tint="@android:color/white"
+                            android:src="@drawable/more"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="More"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:src="@drawable/trolltunga"/>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="5dp"
+                android:layout_marginTop="10dp"
+                app:cardUseCompatPadding="true">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:text="Featured Products"/>
+
+              <Button
+                  android:layout_width="80dp"
+                  android:layout_height="40dp"
+                  android:text="View All"
+                  android:layout_gravity="right"
+                  android:textSize="10sp"
+                  />
+
+
+                <android.support.v7.widget.RecyclerView
+                android:id="@+id/horizontal_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                />
+
+
+            </android.support.v7.widget.CardView>
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

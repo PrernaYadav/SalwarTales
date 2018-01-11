@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.infosolution.dev.salwartales.activities.LoginActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/black"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/tv_title"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="35dp"
+                    android:src="@drawable/logo" />
+
+
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:src="@drawable/arrow" />
+
+
+                <EditText
+                    android:id="@+id/et_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/roundededittext"
+                    android:drawableLeft="@drawable/ic_username"
+                    android:hint="@string/user"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/roundededittext"
+                    android:drawableLeft="@drawable/ic_password"
+                    android:hint="@string/password"
+                    android:padding="5dp"
+                    android:textSize="10sp" />
+
+                <CheckBox
+                    android:id="@+id/cb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:buttonTint="@android:color/white"
+                    android:text="Remember me"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="70dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/roundedbutton"
+                    android:text="@string/signin"
+                    android:textColor="@android:color/white" />
+
+
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/iv_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="345dp"
+                android:src="@drawable/downarrow"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+
+
+            <ImageView
+                android:id="@+id/iv_fb"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/iv_icon"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/facebook" />
+
+
+            <ImageView
+                android:id="@+id/iv_twitter"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/iv_fb"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/twitter" />
+
+            <TextView
+                android:id="@+id/tv_fp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_twitter"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/forgot"
+
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_forgotpass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_twitter"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/tv_fp"
+
+                android:text="@string/clickhere"
+                android:textColor="#F1A6A6"
+                android:textSize="10sp" />
+
+
+            <TextView
+                android:id="@+id/tv_donthaveacc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_fp"
+             android:layout_marginLeft="100dp"
+                android:layout_marginTop="10dp"
+                android:text="Don't have an account yet?"
+                android:layout_marginBottom="20dp"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_forgotpass"
+
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/tv_fp"
+                android:text="Sign Up"
+                android:layout_marginBottom="20dp"
+                android:textColor="#F1A6A6"
+                android:textSize="10sp" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
