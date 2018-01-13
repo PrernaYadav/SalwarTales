@@ -1,4 +1,4 @@
-package com.infosolution.dev.salwartales.activities;
+package com.infosolution.dev.salwartales.activities.model;
 
 /**
  * Created by amit on 1/11/2018.

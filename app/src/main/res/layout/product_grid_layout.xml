@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<ImageView
+    android:id="@+id/iv_proimage"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:src="@drawable/gridimage"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_whislist"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_proname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textColor="@android:color/black"
+        android:text="Drishti dhami in pista color Gown"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:maxLines="3"
+            android:text="Rs."
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textColor="#f32880" />
+
+        <TextView
+            android:id="@+id/tv_provalue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:maxLines="3"
+            android:text="1450.00"
+            android:textColor="#f32880"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.4dp"
+        android:background="#A1887F"
+        android:layout_marginTop="10dp">
+    </View>
+</LinearLayout>

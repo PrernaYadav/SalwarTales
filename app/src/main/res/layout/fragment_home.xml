@@ -1,15 +1,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.infosolution.dev.salwartales.activities.fragments.HomeFragment">
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,215 +28,553 @@
                     android:id="@+id/tv_search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/search"
-                    android:drawableLeft="@drawable/ic_search_black_24dp"
-                    android:padding="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@android:color/white"/>
+                    android:background="@drawable/roundedsearch"
+                    android:drawableLeft="@drawable/ic_search_black_24dp"
+                    android:padding="10dp"
+                    android:text="@string/search" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="15dp"
                     android:layout_gravity="center"
-                    android:weightSum="6">
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:tint="@android:color/white"
-                        android:src="@drawable/offer"
-                        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Best Offer"
-        android:textColor="@android:color/white"
-        android:textSize="10sp"/>
-
-</LinearLayout>
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:tint="@android:color/white"
-                            android:src="@drawable/ic_arrival_icon"
-                            />
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/deal"
+                            android:tint="@android:color/white" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Best Offer"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/arrivalicon"
+                            android:tint="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
                             android:text="New Arrivels"
                             android:textColor="@android:color/white"
-                            android:textSize="10sp"/>
+                            android:textSize="14sp" />
 
                     </LinearLayout>
-
 
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:tint="@android:color/white"
-                            android:src="@drawable/gown"
-                            />
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/gownicon"
+                            android:tint="@android:color/white" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
                             android:text="Gown"
                             android:textColor="@android:color/white"
-                            android:textSize="10sp"/>
+                            android:textSize="14sp" />
 
                     </LinearLayout>
-
-
-
 
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:tint="@android:color/white"
-                            android:src="@drawable/ic_cate_icon"
-                            />
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/choliicon"
+                            android:tint="@android:color/white" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
                             android:text="Lahnga Choli"
                             android:textColor="@android:color/white"
-                            android:textSize="10sp"/>
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
 
-
-                    <LinearLayout
+                   <!-- <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:tint="@android:color/white"
-                            android:src="@drawable/ic_cate_icon"
-                            />
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/choliicon"
+                            android:tint="@android:color/white" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
                             android:text="Lahnga Choli"
                             android:textColor="@android:color/white"
-                            android:textSize="10sp"/>
+                            android:textSize="11sp" />
 
-                    </LinearLayout>
-
+                    </LinearLayout>-->
 
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:tint="@android:color/white"
-                            android:src="@drawable/more"
-                            />
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/mor"
+                            android:tint="@android:color/white" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
                             android:text="More"
                             android:textColor="@android:color/white"
-                            android:textSize="10sp"/>
+                            android:textSize="14sp" />
 
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:src="@drawable/trolltunga"/>
+            <!--<ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/trolltunga"/>-->
 
 
-            <android.support.v7.widget.CardView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ViewFlipper
+                    android:id="@+id/flipper"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp">
+
+                </ViewFlipper>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardCornerRadius="5dp"
-                android:layout_marginTop="10dp"
-                app:cardUseCompatPadding="true">
+                android:layout_gravity="center"
+                android:background="#f6f3e2">
+
+
+                <TextView
+                    android:id="@+id/tv_feat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Featured Products"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_featuredview"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right|top"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/roundedbtn_black"
+                    android:text="View All"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/horizontal_recycler_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="50dp" />
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:src="@drawable/stat"
+                />
+
+
+            <!--   <android.support.v7.widget.CardView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:background="#EEEEEE"
+                   android:layout_marginTop="10dp">-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+                    android:layout_marginLeft="7dp"
+                    android:text="Best Sellers"
                     android:textColor="@android:color/black"
-                    android:text="Featured Products"/>
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-              <Button
-                  android:layout_width="80dp"
-                  android:layout_height="40dp"
-                  android:text="View All"
-                  android:layout_gravity="right"
-                  android:textSize="10sp"
-                  />
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right|top"
+                    android:layout_marginRight="7dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/roundedbtn_black"
+                    android:text="View All"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp" />
 
 
-                <android.support.v7.widget.RecyclerView
-                android:id="@+id/horizontal_recycler_view"
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+
+                    <LinearLayout
+                        android:layout_width="177dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/white"
+                        android:orientation="vertical">
+
+
+                        <FrameLayout
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:id="@+id/iv_itemimagebest"
+                                android:layout_width="170dp"
+                                android:layout_height="150dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/abc" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_whislist" />
+                        </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/tv_itemnamebest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="20dp"
+                            android:text="Black color designer embroldered dress for women"
+                            android:textColor="@android:color/black"
+                            android:textSize="10sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:maxLines="3"
+                                android:text="Rs."
+                                android:textColor="#f32880"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_itemvaluebest"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="3"
+                                android:text="1450.00"
+                                android:textColor="#f32880"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="177dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+
+                        android:background="@android:color/white"
+                        android:orientation="vertical">
+
+
+                        <FrameLayout
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:id="@+id/iv_itemimagebest2"
+                                android:layout_width="170dp"
+                                android:layout_height="150dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/abc" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_whislist" />
+                        </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/tv_itemnamebest2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="20dp"
+                            android:text="Black color designer embroldered dress for women"
+                            android:textColor="@android:color/black"
+                            android:textSize="10sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:maxLines="3"
+                                android:text="Rs."
+                                android:textColor="#f32880"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_itemvaluebest2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="3"
+                                android:text="1450.00"
+                                android:textColor="#f32880"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="177dp"
+                        android:layout_height="200dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/white"
+                        android:orientation="vertical">
+
+
+                        <FrameLayout
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center">
+
+                            <ImageView
+                                android:id="@+id/iv_itemimagebest3"
+                                android:layout_width="170dp"
+                                android:layout_height="150dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/abc" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_whislist" />
+                        </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/tv_itemnamebest3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="20dp"
+                            android:text="Black color designer embroldered dress for women"
+                            android:textColor="@android:color/black"
+                            android:textSize="10sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:maxLines="3"
+                                android:text="Rs."
+                                android:textColor="#f32880"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_itemvaluebest3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="3"
+                                android:text="1450.00"
+                                android:textColor="#f32880"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                </HorizontalScrollView>
+                <!--</android.support.v7.widget.CardView>-->
+            </RelativeLayout>
+
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                />
+                android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <ImageView
+                    android:layout_width="177dp"
+                    android:layout_height="150dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:src="@drawable/ads" />
+
+                <ImageView
+                    android:layout_width="177dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/adss" />
+
+                <ImageView
+                    android:layout_width="177dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/adsss" />
 
 
-            </android.support.v7.widget.CardView>
-
-
-
-
-
-
-
-
+            </LinearLayout>
+            </HorizontalScrollView>
 
         </LinearLayout>
     </ScrollView>

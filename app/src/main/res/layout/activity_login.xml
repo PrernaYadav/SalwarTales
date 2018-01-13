@@ -24,7 +24,9 @@
                 android:background="@android:color/black"
                 android:orientation="vertical">
 
-
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
                 <ImageView
                     android:id="@+id/tv_title"
                     android:layout_width="250dp"
@@ -39,9 +41,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
+                    android:layout_marginTop="125dp"
                     android:layout_marginRight="30dp"
                     android:src="@drawable/arrow" />
-
+</FrameLayout>
 
                 <EditText
                     android:id="@+id/et_user"
@@ -98,7 +101,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="345dp"
+                android:layout_marginTop="390dp"
                 android:src="@drawable/downarrow"
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="2dp" />

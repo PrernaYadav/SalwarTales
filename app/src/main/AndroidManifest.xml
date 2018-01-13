@@ -16,11 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-     <!--   <activity
+        <!--
+            <activity
             android:name=".activities.Navigation"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/NoActionBar"></activity>-->
-        <activity android:name=".activities.LoginActivity"/>
+            android:theme="@style/NoActionBar"></activity>
+        -->
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.ProductPageActivity"/>
+
     </application>
 
 </manifest>

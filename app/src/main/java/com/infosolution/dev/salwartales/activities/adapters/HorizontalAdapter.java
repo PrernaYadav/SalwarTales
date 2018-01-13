@@ -1,4 +1,4 @@
-package com.infosolution.dev.salwartales.activities;
+package com.infosolution.dev.salwartales.activities.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.infosolution.dev.salwartales.R;
+import com.infosolution.dev.salwartales.activities.model.Dataa;
 
 import java.util.Collections;
 import java.util.List;
