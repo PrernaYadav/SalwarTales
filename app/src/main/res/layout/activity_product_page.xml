@@ -26,12 +26,14 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
         app:itemIconTint="#000"
+        android:foregroundGravity="center"
+        app:itemBackground="@drawable/item_devider"
         app:itemTextColor="#000"
-          app:itemBackground="@drawable/item_devider"
+        android:focusable="false"
         app:menu="@menu/bottom_navigation_items"/>
 
     <View
@@ -39,7 +41,7 @@
         android:layout_height="0.5dp"
         android:layout_above="@+id/navigation"/>
 
-
+    <!--app:itemBackground="@drawable/item_devider"-->
 
 
 

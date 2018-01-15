@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.infosolution.dev.salwartales.R;
 
 /**
- * Created by amit on 1/12/2018.
+ * Created by Shreyansh srivastava on 1/12/2018.
  */
 
 public class CustomProductAdaptor extends BaseAdapter {

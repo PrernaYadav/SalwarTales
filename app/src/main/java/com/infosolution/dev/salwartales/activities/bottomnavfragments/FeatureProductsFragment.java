@@ -23,9 +23,9 @@ public class FeatureProductsFragment extends Fragment {
     ListView list;
     LinearLayout lllistgrid;
 
-    private String[] name = new String[] { "Drishti dhami in pista color Gown", "Drishti dhami in pista color Gown", "Drishti dhami in pista color Gown", "Drishti dhami in pista color Gown", "WebOS", };
-    public static int [] prodimages={R.drawable.gridimage,R.drawable.gridimage,R.drawable.gridimage,R.drawable.gridimage,R.drawable.gridimage};
-    private String[] values = new String[] { "1256", "5455", "65654", "656", "6666", };
+    private String[] name = new String[] { "Drishti dhami in pista color Gown", "Drishti dhami in pista color Gown", "Drishti dhami in pista color Gown", "Drishti dhami in pista color Gown", "WebOS","abcded" };
+    public static int [] prodimages={R.drawable.gridimage,R.drawable.gridimage,R.drawable.gridimage,R.drawable.gridimage,R.drawable.gridimage,R.drawable.gridimage};
+    private String[] values = new String[] { "1256", "5455", "65654", "656", "6666","1245" };
 
 
   /*  public FeatureProductsFragment() {
