@@ -31,4 +31,16 @@
         <item name="android:textColor">#fff</item> <!-- checkbox text color -->
     </style>
 
+
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#A1887F
+        </item>
+        <item name="colorControlActivated">#F57F17
+        </item>
+    </style>
+
+
+
+
 </resources>

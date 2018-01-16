@@ -1,17 +1,20 @@
 package com.infosolution.dev.salwartales.activities.bottomnavfragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 
 import com.infosolution.dev.salwartales.R;
+import com.infosolution.dev.salwartales.activities.ProductDetailsActivity;
 import com.infosolution.dev.salwartales.activities.adapters.CustomProductAdaptor;
 
 /**
@@ -47,9 +50,24 @@ public class FeatureProductsFragment extends Fragment {
         grid=(GridView)v.findViewById(R.id.gv_product);
         grid.setVisibility(View.VISIBLE);
         grid.setAdapter(adapter);
-
-
         list.setAdapter(adapter);
+       list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+               Intent intent = new Intent(getContext(),ProductDetailsActivity.class);
+               startActivity(intent);
+           }
+       });
+
+
+
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(),ProductDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         lllistgrid=v.findViewById(R.id.ll_listgrid);
         lllistgrid.setOnClickListener(new View.OnClickListener() {

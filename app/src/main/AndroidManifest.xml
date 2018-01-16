@@ -23,8 +23,10 @@
             android:theme="@style/NoActionBar"></activity>
         -->
         <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.ProductPageActivity"/>
-
+        <activity android:name=".activities.ProductPageActivity" />
+         <activity android:name=".activities.CartActivity"></activity>
+        <activity android:name=".activities.ProductDetailsActivity"></activity>
+        <activity android:name=".activities.Checkout_Login"/>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.infosolution.dev.salwartales.activities.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.infosolution.dev.salwartales.R;
+import com.infosolution.dev.salwartales.activities.ProductDetailsActivity;
 import com.infosolution.dev.salwartales.activities.model.Dataa;
 
 import java.util.Collections;
@@ -63,7 +65,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             @Override
 
             public void onClick(View v) {
-                String list = horizontalList.get(position).name.toString();
+
             }
 
         });

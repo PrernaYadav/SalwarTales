@@ -1,5 +1,6 @@
 package com.infosolution.dev.salwartales.activities;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -79,6 +80,18 @@ public class Navigation extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_cart) {
+
+            Intent intent = new Intent(Navigation.this,CartActivity.class);
+            startActivity(intent);
+
+            return true;
+        }
+
+        if (id == R.id.action_notification) {
+
+            Intent intent = new Intent(Navigation.this,LoginActivity.class);
+            startActivity(intent);
+
             return true;
         }
 

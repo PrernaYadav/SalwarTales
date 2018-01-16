@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.infosolution.dev.salwartales.activities.ProductDetailsActivity">
+
+    <include
+        android:id="@+id/actionbar"
+        layout="@layout/customactionbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/actionbar"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_proimagedet"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/reactangle"
+                    android:src="@drawable/abc" />
+
+                <ImageView
+                    android:id="@+id/iv_wish"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right|bottom"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/circlee"
+                    android:src="@drawable/ic_whislist" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_namedet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Red Sequins layerd georgotte sari for women."
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#80000000" />
+
+            <RatingBar
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="4"
+                android:theme="@style/RatingBar" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp">
+
+
+                <TextView
+                    android:id="@+id/rs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Rs"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#C62828"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_pricedet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@+id/rs"
+                    android:text="3,699"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#C62828"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_availability"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Availability"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+                <TextView
+                    android:id="@+id/tv_dot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@+id/tv_availability"
+                    android:text=":"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+                <TextView
+                    android:id="@+id/tv_availabledet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@+id/tv_dot"
+                    android:text="In Stock"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+
+                <ImageView
+                    android:id="@+id/iv_share"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/share" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#80000000" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Product Deatails"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_detailsdet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Red Sequins layerd georgotte sari for women.Net with matching blouse with white shantoon.
+It's looks like deepika."
+                android:textAppearance="?android:textAppearanceSmall" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#80000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:padding="5dp"
+                    android:text="Color"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+                <TextView
+                    android:id="@+id/tv_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/view10"
+                    android:padding="5dp"
+                    android:text="No"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/view1"
+                    android:layout_marginTop="30dp"
+                    android:background="#80000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view2"
+                    android:layout_marginLeft="5dp"
+                    android:padding="5dp"
+                    android:text="Work Details"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+                <TextView
+                    android:id="@+id/tv_workdetail"
+
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/view10"
+                    android:padding="5dp"
+                    android:text="N/A"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/view2"
+                    android:layout_marginTop="30dp"
+                    android:background="#80000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view3"
+                    android:layout_marginLeft="5dp"
+                    android:padding="5dp"
+                    android:text="Occasion"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+                <TextView
+                    android:id="@+id/tv_occasion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view3"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/view10"
+                    android:padding="5dp"
+                    android:text="N/A"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/view3"
+                    android:layout_marginTop="30dp"
+                    android:background="#80000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view4"
+                    android:layout_marginLeft="5dp"
+                    android:padding="5dp"
+                    android:text="Fabric"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+
+                <TextView
+                    android:id="@+id/tv_fabric"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view4"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/view10"
+                    android:padding="5dp"
+                    android:text="N/A"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/view4"
+                    android:layout_marginTop="30dp"
+                    android:background="#80000000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view5"
+                    android:layout_marginLeft="5dp"
+                    android:padding="5dp"
+                    android:text="Silhouette/Shape"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+                <TextView
+                    android:id="@+id/tv_shape"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view5"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/view10"
+                    android:padding="5dp"
+                    android:text="N/A"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+
+                <View
+                    android:id="@+id/view6"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/view5"
+                    android:layout_marginTop="30dp"
+                    android:background="#80000000" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view6"
+                    android:layout_marginLeft="5dp"
+                    android:padding="5dp"
+                    android:text="Wash Care"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+
+                <TextView
+                    android:id="@+id/tv_washcare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view6"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/view10"
+                    android:padding="5dp"
+                    android:text="N/A"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#80000000" />
+
+                <View
+                    android:id="@+id/view7"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/view6"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="27dp"
+                    android:background="#80000000" />
+
+
+                <View
+                    android:id="@+id/view8"
+                    android:layout_width="0.5dp"
+                    android:layout_height="180dp"
+                    android:background="#80000000" />
+
+                <View
+                    android:id="@+id/view9"
+                    android:layout_width="0.5dp"
+                    android:layout_height="180dp"
+                    android:layout_alignParentRight="true"
+                    android:background="#80000000" />
+
+                <View
+                    android:id="@+id/view10"
+                    android:layout_width="0.5dp"
+                    android:layout_height="180dp"
+                    android:layout_below="@+id/view1"
+                    android:layout_centerInParent="true"
+                    android:background="#80000000" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="10dp"
+                android:background="#80000000" />
+
+            <LinearLayout
+                android:id="@+id/ll_bot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:weightSum="3">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:text="Safe and Secure"
+                    android:textColor="@android:color/black" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="60dp"
+                    android:background="#80000000" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:text="100% Buyer Protection"
+                    android:textColor="@android:color/black" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="60dp"
+                    android:background="#80000000" />
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:padding="10dp"
+                    android:text="Easy Return"
+
+                    android:textColor="@android:color/black" />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#80000000" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btn_addtocartdet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#f8f8f8"
+                    android:text="ADD to cart"
+                    android:textAllCaps="true"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+
+                <Button
+                    android:id="@+id/btn_buynowdet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#e10371"
+                    android:text="Buy now"
+                    android:textAllCaps="true"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

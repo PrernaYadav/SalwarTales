@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_cart"
+        android:id="@+id/action_notification"
         android:orderInCategory="100"
         android:title="Cart"
         android:icon="@drawable/bellring"
@@ -10,7 +10,7 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_notification"
+        android:id="@+id/action_cart"
         android:orderInCategory="101"
         android:title="Cart"
         android:icon="@drawable/cartoutline"
