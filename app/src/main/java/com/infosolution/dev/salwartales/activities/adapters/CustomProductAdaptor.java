@@ -1,6 +1,8 @@
 package com.infosolution.dev.salwartales.activities.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,62 +10,81 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.infosolution.dev.salwartales.R;
+import com.infosolution.dev.salwartales.activities.model.CustomProductModel;
+import com.infosolution.dev.salwartales.activities.model.DataBest;
+
+import java.util.ArrayList;
 
 /**
  * Created by Shreyansh srivastava on 1/12/2018.
  */
 
-public class CustomProductAdaptor extends BaseAdapter {
+public class CustomProductAdaptor extends RecyclerView.Adapter<CustomProductAdaptor.ProductHolder> {
 
-    private Context mContext;
-     String[] name;
-     String[] value;
-     int[] proimage;
 
-    public CustomProductAdaptor(Context mContext, String[] name, String[] value, int[] proimage) {
-        this.mContext = mContext;
-        this.name = name;
-        this.value = value;
-        this.proimage = proimage;
+    public CustomProductAdaptor(ArrayList<CustomProductModel> customProductModelArrayList, Context context, Activity activity) {
+        this.customProductModelArrayList = customProductModelArrayList;
+        this.context = context;
+        this.activity = activity;
     }
+
+    private ArrayList<CustomProductModel> customProductModelArrayList;
+    Context context;
+    private Activity activity;
 
 
     @Override
-    public int getCount() {
-        return name.length;
+    public CustomProductAdaptor.ProductHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View itemView=LayoutInflater.from(parent.getContext()).inflate(R.layout.product_grid_layout, parent, false);
+        return new ProductHolder(itemView, context, customProductModelArrayList);
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public void onBindViewHolder(CustomProductAdaptor.ProductHolder holder, int position) {
+
+        final CustomProductModel CustomProductModel= customProductModelArrayList.get(position);
+
+        Glide.with(activity).load(CustomProductModel.getImage()).into(holder.ivProImage);
+        holder.tvProName.setText(customProductModelArrayList.get(position).getName());
+        holder.tvProValues.setText(customProductModelArrayList.get(position).getValue());
+      holder.favv.setImageResource(customProductModelArrayList.get(position).getFavimage());
+        holder.tvfavstatus.setText(customProductModelArrayList.get(position).getFavStatus());
+        holder.tvqtyleft.setText(customProductModelArrayList.get(position).getQtyLeft());
+        holder.tvproid.setText(customProductModelArrayList.get(position).getProId());
+
+
+
     }
 
     @Override
-    public long getItemId(int i) {
-        return 0;
+    public int getItemCount() {
+        if (customProductModelArrayList == null)
+            return 0;
+        return customProductModelArrayList.size();
     }
 
-    @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
-        // TODO Auto-generated method stub
-        View grid;
-        LayoutInflater inflater = (LayoutInflater) mContext
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public class ProductHolder extends RecyclerView.ViewHolder {
 
-        if (view == null) {
 
-            grid = new View(mContext);
-            grid = inflater.inflate(R.layout.product_grid_layout, null);
-            TextView tvname = (TextView) grid.findViewById(R.id.tv_proname);
-            TextView tvvalue = (TextView) grid.findViewById(R.id.tv_provalue);
-            ImageView imageView = (ImageView)grid.findViewById(R.id.iv_proimage);
-            tvname.setText(name[position]);
-            imageView.setImageResource(proimage[position]);
-        } else {
-            grid = (View) view;
+        TextView tvProName,tvProValues,tvfavstatus,tvproid,tvqtyleft;
+        ImageView ivProImage,favv;
+
+        public ProductHolder(View itemView, Context context, ArrayList<CustomProductModel> customProductModelArrayList) {
+            super(itemView);
+
+            tvProName = (TextView) itemView.findViewById(R.id.tv_proname);
+            tvProValues = (TextView) itemView.findViewById(R.id.tv_provalue);
+            ivProImage = (ImageView) itemView.findViewById(R.id.iv_proimage);
+            tvfavstatus=(TextView) itemView.findViewById(R.id.favstatusss);
+            tvproid=(TextView) itemView.findViewById(R.id.proidd);
+            tvqtyleft=(TextView) itemView.findViewById(R.id.qtyyy);
+
+            favv=(ImageView) itemView.findViewById(R.id.favv);
+
         }
-
-        return grid;
     }
 }
+

@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/white"
-    android:padding="5dp"
     android:orientation="vertical">
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="350dp"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="vertical">
+
+
 
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+
 
 <ImageView
     android:id="@+id/iv_proimage"
@@ -18,8 +34,9 @@
     android:src="@drawable/gridimage"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/favv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:src="@drawable/ic_whislist"
             android:layout_gravity="right|bottom"
             android:layout_marginRight="10dp"
@@ -61,11 +78,23 @@
             android:textStyle="bold" />
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/proidd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
-   <!-- <View
-        android:layout_width="match_parent"
-        android:layout_height="0.4dp"
-        android:background="#A1887F"
-        android:layout_marginTop="10dp">
-    </View>-->
-</LinearLayout>
+    <TextView
+        android:id="@+id/qtyyy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/favstatusss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -99,35 +99,22 @@
         android:background="#99808080" />
 
 
-    <!--<android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cardCornerRadius="2dp"
-        >-->
-
-    <GridView
-        android:id="@+id/gv_product"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_featuredpro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="2"
-        android:verticalSpacing="0.5dp"
-        android:horizontalSpacing="0.5dp"
-        android:gravity="center"
-        android:background="#E6808080"
-        android:columnWidth="100dp"
+        android:layout_marginTop="2dp"
         android:visibility="gone"
-        android:stretchMode="columnWidth">
-    </GridView>
-
-        <ListView
-            android:id="@+id/lv_product"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone">
-
-        </ListView>
+        />
 
 
-    <!--</android.support.v7.widget.CardView>-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_featuredprolist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:visibility="gone"
+        />
+
 
 </LinearLayout>

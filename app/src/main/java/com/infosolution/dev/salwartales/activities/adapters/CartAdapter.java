@@ -67,7 +67,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
             tvplus = (TextView) view.findViewById(R.id.tv_plus);
             proimage = (ImageView) view.findViewById(R.id.cart_proimage);
 
-            pri = Integer.parseInt(proprice.getText().toString());
+            //pri = Integer.parseInt(proprice.getText().toString());
 
 
             tvminus.setOnClickListener(new View.OnClickListener() {

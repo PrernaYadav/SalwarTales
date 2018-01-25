@@ -1,5 +1,6 @@
 package com.infosolution.dev.salwartales.activities.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -9,10 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.infosolution.dev.salwartales.R;
 import com.infosolution.dev.salwartales.activities.ProductDetailsActivity;
 import com.infosolution.dev.salwartales.activities.model.Dataa;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,26 +25,33 @@ import java.util.List;
 
 public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.MyViewHolder> {
 
-
-    List<Dataa> horizontalList = Collections.emptyList();
-    Context context;
-
-
-    public HorizontalAdapter(List<Dataa> horizontalList, Context context) {
-        this.horizontalList = horizontalList;
+    public HorizontalAdapter(ArrayList<Dataa> dataaArrayList, Context context, Activity activity) {
+        this.dataaArrayList = dataaArrayList;
         this.context = context;
+        this.activity = activity;
     }
+
+    private ArrayList<Dataa> dataaArrayList;
+    Context context;
+    private Activity activity;
+
+
+
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imageView;
-        TextView tvname,tvvalue;
-        public MyViewHolder(View view) {
+        ImageView imageView,ivfav;
+        TextView tvname,tvvalue,tvfavstatus,tvproid,tvqtyleft;
+        public MyViewHolder(View view, Context context, ArrayList<Dataa> dataaArrayList) {
             super(view);
             imageView=(ImageView) view.findViewById(R.id.iv_itemimage);
+            ivfav=(ImageView) view.findViewById(R.id.ivfav);
             tvname=(TextView) view.findViewById(R.id.tv_itemname);
             tvvalue=(TextView) view.findViewById(R.id.tv_itemvalue);
+            tvfavstatus=(TextView) view.findViewById(R.id.favstatus);
+            tvproid=(TextView) view.findViewById(R.id.proid);
+            tvqtyleft=(TextView) view.findViewById(R.id.qtyleft);
         }
     }
 
@@ -51,31 +61,31 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.featuredproduct_row, parent, false);
 
-        return new MyViewHolder(itemView);
+        return new MyViewHolder(itemView, context, dataaArrayList);
     }
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
+        final Dataa dataa= dataaArrayList.get(position);
 
-        holder.imageView.setImageResource(horizontalList.get(position).image);
-        holder.tvname.setText(horizontalList.get(position).name);
-        holder.tvvalue.setText(horizontalList.get(position).value);
+        Glide.with(activity).load(dataa.getImage()).into(holder.imageView);
+        holder.tvname.setText(dataaArrayList.get(position).name);
+        holder.tvvalue.setText(dataaArrayList.get(position).value);
+        holder.tvfavstatus.setText(dataaArrayList.get(position).getFavStatus());
+        holder.tvqtyleft.setText(dataaArrayList.get(position).getQtyLeft());
+        holder.ivfav.setImageResource(dataaArrayList.get(position).getFavimage());
 
-        holder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
 
-            public void onClick(View v) {
 
-            }
-
-        });
 
     }
 
 
     @Override
-    public int getItemCount()
-    {
-        return horizontalList.size();
+    public int getItemCount() {
+
+        if (dataaArrayList == null)
+            return 0;
+        return dataaArrayList.size();
     }
 }

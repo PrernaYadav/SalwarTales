@@ -269,7 +269,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
                 android:src="@drawable/stat"
-                />
+               android:scaleType="fitXY" />
 
 
             <!--   <android.support.v7.widget.CardView
@@ -282,260 +282,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="10dp">
+                android:background="#f6f3e2">
 
 
                 <TextView
+                    android:id="@+id/tv_bestseller"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="7dp"
-                    android:text="Best Sellers"
+                    android:layout_marginLeft="10dp"
+                    android:text="Best Seller"
+                    android:layout_marginTop="10dp"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <Button
+                    android:id="@+id/btn_bestsellerview"
                     android:layout_width="80dp"
                     android:layout_height="30dp"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="right|top"
-                    android:layout_marginRight="7dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="13dp"
                     android:background="@drawable/roundedbtn_black"
                     android:text="View All"
                     android:textColor="@android:color/white"
                     android:textSize="10sp" />
 
 
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_bestseller"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="50dp" />
 
 
-                    <LinearLayout
-                        android:layout_width="177dp"
-                        android:layout_height="200dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:background="@android:color/white"
-                        android:orientation="vertical">
-
-
-                        <FrameLayout
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:layout_gravity="center">
-
-                            <ImageView
-                                android:id="@+id/iv_itemimagebest"
-                                android:layout_width="170dp"
-                                android:layout_height="150dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/abc" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_whislist" />
-                        </FrameLayout>
-
-
-                        <TextView
-                            android:id="@+id/tv_itemnamebest"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginTop="20dp"
-                            android:text="Black color designer embroldered dress for women"
-                            android:textColor="@android:color/black"
-                            android:textSize="10sp" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:maxLines="3"
-                                android:text="Rs."
-                                android:textColor="#f32880"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_itemvaluebest"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLines="3"
-                                android:text="1450.00"
-                                android:textColor="#f32880"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="177dp"
-                        android:layout_height="200dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-
-                        android:background="@android:color/white"
-                        android:orientation="vertical">
-
-
-                        <FrameLayout
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:layout_gravity="center">
-
-                            <ImageView
-                                android:id="@+id/iv_itemimagebest2"
-                                android:layout_width="170dp"
-                                android:layout_height="150dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/abc" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_whislist" />
-                        </FrameLayout>
-
-
-                        <TextView
-                            android:id="@+id/tv_itemnamebest2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginTop="20dp"
-                            android:text="Black color designer embroldered dress for women"
-                            android:textColor="@android:color/black"
-                            android:textSize="10sp" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:maxLines="3"
-                                android:text="Rs."
-                                android:textColor="#f32880"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_itemvaluebest2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLines="3"
-                                android:text="1450.00"
-                                android:textColor="#f32880"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="177dp"
-                        android:layout_height="200dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:background="@android:color/white"
-                        android:orientation="vertical">
-
-
-                        <FrameLayout
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:layout_gravity="center">
-
-                            <ImageView
-                                android:id="@+id/iv_itemimagebest3"
-                                android:layout_width="170dp"
-                                android:layout_height="150dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/abc" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_whislist" />
-                        </FrameLayout>
-
-
-                        <TextView
-                            android:id="@+id/tv_itemnamebest3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginTop="20dp"
-                            android:text="Black color designer embroldered dress for women"
-                            android:textColor="@android:color/black"
-                            android:textSize="10sp" />
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:maxLines="3"
-                                android:text="Rs."
-                                android:textColor="#f32880"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_itemvaluebest3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLines="3"
-                                android:text="1450.00"
-                                android:textColor="#f32880"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-                </LinearLayout>
-                </HorizontalScrollView>
-                <!--</android.support.v7.widget.CardView>-->
             </RelativeLayout>
+
+
+
 
 
             <HorizontalScrollView

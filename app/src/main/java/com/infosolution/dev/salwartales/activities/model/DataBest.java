@@ -1,11 +1,10 @@
 package com.infosolution.dev.salwartales.activities.model;
 
 /**
- * Created by amit on 1/11/2018.
+ * Created by amit on 1/25/2018.
  */
 
-public class Dataa {
-
+public class DataBest {
 
     public String image;
     public String name;
@@ -26,7 +25,7 @@ public class Dataa {
         this.favimage = favimage;
     }
 
-    public Dataa(String qtyLeft, int favimage) {
+    public DataBest(String qtyLeft, int favimage) {
         QtyLeft = qtyLeft;
         this.favimage = favimage;
     }
@@ -34,7 +33,7 @@ public class Dataa {
     String QtyLeft;
     int favimage;
 
-    public Dataa(String favStatus) {
+    public DataBest(String favStatus) {
         FavStatus = favStatus;
     }
 
@@ -49,7 +48,7 @@ public class Dataa {
     String FavStatus;
     public String value;
 
-    public Dataa() {
+    public DataBest() {
         this.image = image;
         this.name = name;
         this.value = value;
