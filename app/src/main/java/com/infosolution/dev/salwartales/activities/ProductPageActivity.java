@@ -1,5 +1,6 @@
 package com.infosolution.dev.salwartales.activities;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenuItemView;
 import android.support.design.internal.NavigationMenuView;
@@ -11,9 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.text.Layout;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.infosolution.dev.salwartales.R;
@@ -21,9 +25,10 @@ import com.infosolution.dev.salwartales.activities.adapters.BottomNavigationView
 import com.infosolution.dev.salwartales.activities.bottomnavfragments.FeatureProductsFragment;
 import com.infosolution.dev.salwartales.activities.fragments.HomeFragment;
 
-public class ProductPageActivity extends AppCompatActivity {
+public class ProductPageActivity extends AppCompatActivity  {
 
     View view;
+    private TextView tvbudge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +36,6 @@ public class ProductPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_page);
 
         view=findViewById(R.id.actionbar);
-     /*   getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.customactionbar);
-        View view =getSupportActionBar().getCustomView();*/
      ImageView ivback = findViewById(R.id.iv_back);
      ivback.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -43,6 +44,22 @@ public class ProductPageActivity extends AppCompatActivity {
          finish();
          }
      });
+
+
+
+
+        ImageView ivcart = findViewById(R.id.iv_back);
+        ivcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ProductPageActivity.this,CartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        tvbudge=findViewById(R.id.badge_notification_1);
+        tvbudge.setText("5");
+
 
 
 
@@ -108,4 +125,16 @@ public class ProductPageActivity extends AppCompatActivity {
         //Used to select an item programmatically
         bottomNavigationView.getMenu().getItem(2).setChecked(true);
     }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        /*Toast.makeText(ProductPageActivity.this,"Back pressed",Toast.LENGTH_LONG).show();
+        Log.i("back","backpressed");*/
+
+
+
+    }
+
+
 }

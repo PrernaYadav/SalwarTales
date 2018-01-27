@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="?attr/actionBarSize"
     android:padding="7dp"
     android:gravity="center"
     android:background="@android:color/black">
@@ -26,6 +26,11 @@
         android:text="Products and Brands"
         android:ems="14"/>
 
+    <RelativeLayout
+        android:id="@+id/relative_layout_item_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/iv_customcart"
         android:layout_width="wrap_content"
@@ -33,6 +38,18 @@
         android:layout_height="wrap_content"
         android:src="@drawable/cartoutline"
         />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/badge_notification_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/relative_layout_item_count"
+        android:background="@android:drawable/ic_notification_overlay"
+        android:text="27"
+        android:textColor="#FFF"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

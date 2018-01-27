@@ -9,7 +9,7 @@
         android:layout_width="1dp"
         android:layout_height="350dp"
         android:layout_alignParentRight="true"
-        android:background="@android:color/black"/>
+        android:background="#4D000000"/>
 
     <LinearLayout
         android:id="@+id/ll"

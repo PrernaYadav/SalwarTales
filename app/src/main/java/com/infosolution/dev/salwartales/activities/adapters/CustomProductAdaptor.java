@@ -2,6 +2,7 @@ package com.infosolution.dev.salwartales.activities.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.infosolution.dev.salwartales.R;
+import com.infosolution.dev.salwartales.activities.ProductDetailsActivity;
 import com.infosolution.dev.salwartales.activities.model.CustomProductModel;
 import com.infosolution.dev.salwartales.activities.model.DataBest;
 
@@ -72,7 +74,7 @@ public class CustomProductAdaptor extends RecyclerView.Adapter<CustomProductAdap
         TextView tvProName,tvProValues,tvfavstatus,tvproid,tvqtyleft;
         ImageView ivProImage,favv;
 
-        public ProductHolder(View itemView, Context context, ArrayList<CustomProductModel> customProductModelArrayList) {
+        public ProductHolder(View itemView, Context context, final ArrayList<CustomProductModel> customProductModelArrayList) {
             super(itemView);
 
             tvProName = (TextView) itemView.findViewById(R.id.tv_proname);
@@ -81,8 +83,17 @@ public class CustomProductAdaptor extends RecyclerView.Adapter<CustomProductAdap
             tvfavstatus=(TextView) itemView.findViewById(R.id.favstatusss);
             tvproid=(TextView) itemView.findViewById(R.id.proidd);
             tvqtyleft=(TextView) itemView.findViewById(R.id.qtyyy);
-
             favv=(ImageView) itemView.findViewById(R.id.favv);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position=getAdapterPosition();
+                    Intent intent= new Intent(activity, ProductDetailsActivity.class);
+                    intent.putExtra("Proid",customProductModelArrayList.get(position).getProId());
+                    activity.startActivity(intent);
+                }
+            });
 
         }
     }
