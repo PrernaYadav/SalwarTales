@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.infosolution.dev.salwartales.R;
 import com.infosolution.dev.salwartales.activities.model.DataBest;
 import com.infosolution.dev.salwartales.activities.model.Dataa;
@@ -33,7 +34,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private ImageView ivproimage;
     private Button btnaddtocart,btnbuynow;
     private String ProId;
-    private  String ProName,Price,Available,Prodetail,Color,Workdetail,Occasion,Fabric,shape,WashCare,ProImage;
+    private  String ProName,Price,Available,Prodetail,Color,Workdetail,Occasion,Fabric,shape,WashCare,ProImage,FavStatus,Qty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,20 +89,28 @@ public class ProductDetailsActivity extends AppCompatActivity {
                                         ProName = object1.getString("product_name");
                                         Price = object1.getString("rate");
                                         ProImage= object1.getString("product_image");
-                                      /*  FavStatus = object1.getString("fav_status");
-                                        Qty = object1.getString("quantity_left");*/
+                                        FavStatus = object1.getString("fav_status");
+                                        Qty = object1.getString("quantity_left");
+                                        Available = object1.getString("availability");
+                                        Color = object1.getString("color");
+                                        Workdetail = object1.getString("work_details");
+                                        Occasion = object1.getString("occasion");
+                                        Fabric = object1.getString("fabric");
+                                        shape = object1.getString("shape");
+                                        WashCare = object1.getString("wash_care");
+                                        ProImage = object1.getString("product_image");
 
-
+                                        tvproname.setText(ProName);
+                                        tvprice.setText(Price);
+                                        tvcolor.setText(Color);
+                                        tvworkdetail.setText(Workdetail);
+                                        tvoccasion.setText(Occasion);
+                                        tvfabric.setText(Fabric);
+                                        tvshape.setText(shape);
+                                        tvwashcare.setText(WashCare);
+                                        Glide.with(ProductDetailsActivity.this).load(ProImage).into(ivproimage);
                                     }
-
-
-
-
                             }
-
-
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -130,6 +139,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
 
                 params.put("product_id", ProId);
+
+                Log.i("Detailsparam",""+params);
 
 
 
