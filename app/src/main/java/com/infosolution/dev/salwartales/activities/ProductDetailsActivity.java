@@ -1,10 +1,14 @@
 package com.infosolution.dev.salwartales.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.http.RequestQueue;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,18 +35,55 @@ import java.util.Map;
 public class ProductDetailsActivity extends AppCompatActivity {
 
     private TextView tvproname,tvprice,tvavail,tvprodetail,tvcolor,tvworkdetail,tvoccasion,tvfabric,tvshape,tvwashcare;
-    private ImageView ivproimage;
+    private ImageView ivproimage,ivwish,ivshare;
     private Button btnaddtocart,btnbuynow;
-    private String ProId;
+    private String ProId,Proid;
+    private ProgressDialog pd;
     private  String ProName,Price,Available,Prodetail,Color,Workdetail,Occasion,Fabric,shape,WashCare,ProImage,FavStatus,Qty;
+ private   View view;
+ private String url2;
+
+    private String url="http://salwartales.com/rests2/api_2.php?product_id=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
+        view = findViewById(R.id.actionbar);
+        ImageView ivback = findViewById(R.id.iv_back);
+        ivback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //  Toast.makeText(CartActivity.this,"back clicked",Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+
+
+        /*final SharedPreferences prefs = getSharedPreferences("CustumproductPage", MODE_PRIVATE);
+        ProId = prefs.getString("pro", null);*/
+
         Intent intent=getIntent();
-        ProId=intent.getStringExtra("Proid");
+        Proid=intent.getStringExtra("HoriProid");
+
+        Intent intent2=getIntent();
+        ProId=intent2.getStringExtra("Proid");
+
+        if (TextUtils.isEmpty(Proid)) {
+
+            url2=url+ProId;
+
+        }else  if (TextUtils.isEmpty(ProId)) {
+
+            url2=url+Proid;
+
+        }
+
+
+        Log.i("Values",""+Proid);
+
 
 
         tvproname=findViewById(R.id.tv_namedet);
@@ -56,20 +97,43 @@ public class ProductDetailsActivity extends AppCompatActivity {
         tvshape=findViewById(R.id.tv_shape);
         tvwashcare=findViewById(R.id.tv_washcare);
         ivproimage=findViewById(R.id.iv_proimagedet);
+        ivshare=findViewById(R.id.iv_share);
+        ivwish=findViewById(R.id.iv_wish);
         btnaddtocart=findViewById(R.id.btn_addtocartdet);
         btnbuynow=findViewById(R.id.btn_buynowdet);
 
+
+        pd = new ProgressDialog(ProductDetailsActivity.this);
+        pd.setMessage("loading");
+        pd.show();
+
         Loaddata();
+
+        ivshare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "Here is the share content body";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
+            }
+        });
 
     }
 
     private void Loaddata() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://salwartales.com/rests2/api_2.php",
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url2,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
-                        Toast.makeText(ProductDetailsActivity.this,response.toString(),Toast.LENGTH_LONG).show();
+
+
+                    //    Toast.makeText(ProductDetailsActivity.this,response.toString(),Toast.LENGTH_LONG).show();
                         Log.i("resPro",response.toString());
 
                         try {
@@ -100,6 +164,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
                                         WashCare = object1.getString("wash_care");
                                         ProImage = object1.getString("product_image");
 
+                                        pd.dismiss();
+
                                         tvproname.setText(ProName);
                                         tvprice.setText(Price);
                                         tvcolor.setText(Color);
@@ -108,6 +174,18 @@ public class ProductDetailsActivity extends AppCompatActivity {
                                         tvfabric.setText(Fabric);
                                         tvshape.setText(shape);
                                         tvwashcare.setText(WashCare);
+                                        if (FavStatus.equals("1")){
+                                            ivwish.setImageResource(R.drawable.ico);
+                                        }else {
+                                            ivwish.setImageResource(R.drawable.whislist);
+                                        }
+
+                                        if (Available.equals("1")){
+                                            tvavail.setText("In Stock");
+                                        }else {
+                                            tvavail.setText("Out Of Stock");
+                                        }
+
                                         Glide.with(ProductDetailsActivity.this).load(ProImage).into(ivproimage);
                                     }
                             }
@@ -138,9 +216,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
                 Map<String, String> params = new HashMap<String, String>();
 
-                params.put("product_id", ProId);
+               /* params.put("product_id", ProId);
 
-                Log.i("Detailsparam",""+params);
+                Log.i("Detailsparam",""+params);*/
 
 
 

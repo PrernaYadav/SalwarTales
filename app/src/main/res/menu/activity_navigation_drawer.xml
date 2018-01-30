@@ -5,34 +5,69 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home_icon"
+            android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_bestoffer"
+            android:icon="@drawable/deal"
+            android:title="Best Offers" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_Newarrivels"
+            android:icon="@drawable/arrivalicon"
+            android:title="New Arrivels" />
+
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_saree"
+            android:icon="@drawable/play"
+            android:title="Saaree" />
+
+        <item
+            android:id="@+id/nav_salkameez"
+            android:icon="@drawable/play"
+            android:title="Salwar Kameez" />
+
+        <item
+            android:id="@+id/nav_gown"
+            android:icon="@drawable/play"
+            android:title="Gown" />
+
+        <item
+            android:id="@+id/nav_lahnga"
+            android:icon="@drawable/play"
+            android:title="Lahnga Choli" />
+
+        <item
+            android:id="@+id/nav_kurti"
+            android:icon="@drawable/play"
+            android:title="Kurti" />
+
+        <item
+            android:id="@+id/nav_clutches"
+            android:icon="@drawable/play"
+            android:title="Clutches" />
+
+        <item
+            android:id="@+id/nav_blouse"
+            android:icon="@drawable/play"
+            android:title="Blouse" />
+
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/acc"
+            android:title="My Profile" />
     </group>
 
-    <item android:title="">
-        <menu>
+<group>
+
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Log Out" />
-        </menu>
-    </item>
 
-</menu>
+</group>
+        </menu>
+
+
+

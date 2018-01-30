@@ -26,7 +26,11 @@
         android:layout_height="150dp"
         android:layout_gravity="center">
 
-
+<TextView
+    android:id="@+id/horiproid"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="gone"/>
 
 
         <ImageView
@@ -37,8 +41,8 @@
             android:src="@drawable/abc" />
         <ImageView
             android:id="@+id/ivfav"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:src="@drawable/ic_whislist" />

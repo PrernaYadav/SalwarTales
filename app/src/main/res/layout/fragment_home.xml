@@ -185,8 +185,7 @@
                         <ImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:src="@drawable/mor"
-                            android:tint="@android:color/white" />
+                            android:src="@drawable/mor" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -268,7 +267,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
-                android:src="@drawable/stat"
+                android:src="@drawable/mobilebanner1"
                android:scaleType="fitXY" />
 
 

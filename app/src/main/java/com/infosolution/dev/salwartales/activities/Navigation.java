@@ -34,7 +34,7 @@ public class Navigation extends AppCompatActivity
 
 
         tvcart=findViewById(R.id.badge_notification2);
-        tvcart.setText("5");
+        tvcart.setText("0");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     //    toolbar.setTitle("salwartales");
@@ -126,7 +126,7 @@ public class Navigation extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
 
 
             setTitle("salwartales");
@@ -137,15 +137,25 @@ public class Navigation extends AppCompatActivity
 
 
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_bestoffer) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_Newarrivels) {
 
-        } else if (id == R.id.nav_manage) {
+        }else if (id == R.id.nav_gown) {
+
+        }else if (id == R.id.nav_lahnga) {
+
+        } else if (id == R.id.nav_profile) {
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            String shareBody = "Here is the share content body";
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(sharingIntent, "Share via"));
 
         }
 

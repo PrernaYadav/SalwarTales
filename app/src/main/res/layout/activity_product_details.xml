@@ -34,18 +34,22 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/reactangle"
-                    android:src="@drawable/abc" />
-
+                    android:background="@drawable/reactangle" />
+<LinearLayout
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_gravity="right|bottom"
+    android:layout_marginBottom="30dp"
+    android:layout_marginRight="30dp"
+    android:gravity="center"
+    android:background="@drawable/circlee">
                 <ImageView
                     android:id="@+id/iv_wish"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="right|bottom"
-                    android:layout_marginBottom="30dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@drawable/circlee"
-                    android:src="@drawable/ic_whislist" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/whislist" />
+</LinearLayout>
 
             </FrameLayout>
 
@@ -56,8 +60,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="Red Sequins layerd georgotte sari for women."
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="#80000000" />
+                android:textColor="#000000"
+                android:textSize="16sp" />
 
             <RatingBar
                 android:id="@+id/rb_ratingdet"
@@ -109,8 +113,8 @@
                     android:layout_marginLeft="90dp"
                     android:layout_marginTop="5dp"
                     android:text="Availability"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="#80000000" />
+                    android:textColor="#80000000"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tv_dot"
@@ -119,8 +123,8 @@
                     android:layout_marginTop="5dp"
                     android:layout_toRightOf="@+id/tv_availability"
                     android:text=":"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="#80000000" />
+                    android:textColor="#80000000"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tv_availabledet"
@@ -130,8 +134,8 @@
                     android:layout_marginTop="5dp"
                     android:layout_toRightOf="@+id/tv_dot"
                     android:text="In Stock"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="#80000000" />
+                    android:textColor="#80000000"
+                    android:textSize="14sp" />
 
 
                 <ImageView
@@ -194,7 +198,7 @@ It's looks like deepika."
                     android:layout_marginLeft="5dp"
                     android:padding="5dp"
                     android:text="Color"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
                 <TextView
@@ -205,7 +209,7 @@ It's looks like deepika."
                     android:layout_toRightOf="@+id/view10"
                     android:padding="5dp"
                     android:text="N/A"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
                 <View
@@ -223,7 +227,7 @@ It's looks like deepika."
                     android:layout_marginLeft="5dp"
                     android:padding="5dp"
                     android:text="Work Details"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
                 <TextView
@@ -237,7 +241,7 @@ It's looks like deepika."
                     android:layout_toRightOf="@+id/view10"
                     android:padding="5dp"
                     android:text="N/A"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
 
@@ -256,7 +260,7 @@ It's looks like deepika."
                     android:layout_marginLeft="5dp"
                     android:padding="5dp"
                     android:text="Occasion"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
                 <TextView
@@ -268,7 +272,7 @@ It's looks like deepika."
                     android:layout_toRightOf="@+id/view10"
                     android:padding="5dp"
                     android:text="N/A"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
 
@@ -287,7 +291,7 @@ It's looks like deepika."
                     android:layout_marginLeft="5dp"
                     android:padding="5dp"
                     android:text="Fabric"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
 
@@ -300,7 +304,7 @@ It's looks like deepika."
                     android:layout_toRightOf="@+id/view10"
                     android:padding="5dp"
                     android:text="N/A"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
                 <View
@@ -318,7 +322,7 @@ It's looks like deepika."
                     android:layout_marginLeft="5dp"
                     android:padding="5dp"
                     android:text="Silhouette/Shape"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
                 <TextView
@@ -330,7 +334,7 @@ It's looks like deepika."
                     android:layout_toRightOf="@+id/view10"
                     android:padding="5dp"
                     android:text="N/A"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
 
@@ -350,7 +354,7 @@ It's looks like deepika."
                     android:layout_marginLeft="5dp"
                     android:padding="5dp"
                     android:text="Wash Care"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
 
@@ -363,7 +367,7 @@ It's looks like deepika."
                     android:layout_toRightOf="@+id/view10"
                     android:padding="5dp"
                     android:text="N/A"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="#80000000" />
 
                 <View
@@ -411,46 +415,50 @@ It's looks like deepika."
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-
                 android:weightSum="3">
 
                 <TextView
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:padding="10dp"
                     android:text="Safe and Secure"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
 
                 <View
                     android:layout_width="0.5dp"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="#80000000" />
 
                 <TextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:padding="10dp"
                     android:text="100% Buyer Protection"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
 
                 <View
                     android:layout_width="0.5dp"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="#80000000" />
+
                 <TextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-
                     android:padding="10dp"
                     android:text="Easy Return"
+                    android:textColor="@android:color/black"
 
-                    android:textColor="@android:color/black" />
+                    android:textSize="12sp" />
 
 
             </LinearLayout>

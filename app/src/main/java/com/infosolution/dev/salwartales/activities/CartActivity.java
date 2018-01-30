@@ -30,7 +30,7 @@ public class CartActivity extends AppCompatActivity {
     RecyclerView rccart;
     CartAdapter cartAdapter;
     Button btnprotocheckout;
-    View view;
+    private View view;
     private List<Cart> cartList;
 
     @Override

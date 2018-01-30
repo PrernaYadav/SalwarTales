@@ -42,8 +42,8 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView,ivfav;
-        TextView tvname,tvvalue,tvfavstatus,tvproid,tvqtyleft;
-        public MyViewHolder(View view, Context context, ArrayList<Dataa> dataaArrayList) {
+        TextView tvname,tvvalue,tvfavstatus,tvproid,tvqtyleft,tvhoriproid;
+        public MyViewHolder(View view, Context context, final ArrayList<Dataa> dataaArrayList) {
             super(view);
             imageView=(ImageView) view.findViewById(R.id.iv_itemimage);
             ivfav=(ImageView) view.findViewById(R.id.ivfav);
@@ -52,6 +52,19 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
             tvfavstatus=(TextView) view.findViewById(R.id.favstatus);
             tvproid=(TextView) view.findViewById(R.id.proid);
             tvqtyleft=(TextView) view.findViewById(R.id.qtyleft);
+            tvhoriproid=(TextView) view.findViewById(R.id.horiproid);
+
+          itemView.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  int position=getAdapterPosition();
+                  Intent intent= new Intent(activity, ProductDetailsActivity.class);
+                  intent.putExtra("HoriProid",dataaArrayList.get(position).getHoriPorId());
+                  activity.startActivity(intent);
+              }
+          });
+
+
         }
     }
 
@@ -73,6 +86,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         holder.tvvalue.setText(dataaArrayList.get(position).value);
         holder.tvfavstatus.setText(dataaArrayList.get(position).getFavStatus());
         holder.tvqtyleft.setText(dataaArrayList.get(position).getQtyLeft());
+        holder.tvhoriproid.setText(dataaArrayList.get(position).getHoriPorId());
         holder.ivfav.setImageResource(dataaArrayList.get(position).getFavimage());
 
 

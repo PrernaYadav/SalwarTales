@@ -3,6 +3,7 @@ package com.infosolution.dev.salwartales.activities.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,15 +27,15 @@ import java.util.ArrayList;
 public class CustomProductAdaptor extends RecyclerView.Adapter<CustomProductAdaptor.ProductHolder> {
 
 
-    public CustomProductAdaptor(ArrayList<CustomProductModel> customProductModelArrayList, Context context, Activity activity) {
+    public CustomProductAdaptor(ArrayList<CustomProductModel> customProductModelArrayList, Context context, Activity activityy) {
         this.customProductModelArrayList = customProductModelArrayList;
         this.context = context;
-        this.activity = activity;
+        this.activityy = activityy;
     }
 
     private ArrayList<CustomProductModel> customProductModelArrayList;
     Context context;
-    private Activity activity;
+    private Activity activityy;
 
 
     @Override
@@ -49,7 +50,7 @@ public class CustomProductAdaptor extends RecyclerView.Adapter<CustomProductAdap
 
         final CustomProductModel CustomProductModel= customProductModelArrayList.get(position);
 
-        Glide.with(activity).load(CustomProductModel.getImage()).into(holder.ivProImage);
+        Glide.with(activityy).load(CustomProductModel.getImage()).into(holder.ivProImage);
         holder.tvProName.setText(customProductModelArrayList.get(position).getName());
         holder.tvProValues.setText(customProductModelArrayList.get(position).getValue());
       holder.favv.setImageResource(customProductModelArrayList.get(position).getFavimage());
@@ -89,9 +90,10 @@ public class CustomProductAdaptor extends RecyclerView.Adapter<CustomProductAdap
                 @Override
                 public void onClick(View view) {
                     int position=getAdapterPosition();
-                    Intent intent= new Intent(activity, ProductDetailsActivity.class);
+//                    String Proid=customProductModelArrayList.get(position).getProId();
+                    Intent intent= new Intent(activityy, ProductDetailsActivity.class);
                     intent.putExtra("Proid",customProductModelArrayList.get(position).getProId());
-                    activity.startActivity(intent);
+                    activityy.startActivity(intent);
                 }
             });
 

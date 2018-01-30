@@ -58,7 +58,7 @@ public class ProductPageActivity extends AppCompatActivity  {
         });
 
         tvbudge=findViewById(R.id.badge_notification_1);
-        tvbudge.setText("5");
+        tvbudge.setText("0");
 
 
 

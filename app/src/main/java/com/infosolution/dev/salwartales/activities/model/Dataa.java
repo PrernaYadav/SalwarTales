@@ -10,6 +10,16 @@ public class Dataa {
     public String image;
     public String name;
 
+    public String getHoriPorId() {
+        return HoriPorId;
+    }
+
+    public void setHoriPorId(String horiPorId) {
+        HoriPorId = horiPorId;
+    }
+
+    String HoriPorId;
+
     public String getQtyLeft() {
         return QtyLeft;
     }

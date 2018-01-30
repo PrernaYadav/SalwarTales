@@ -53,14 +53,14 @@ public class HomeFragment extends Fragment {
     private ArrayList<DataBest> dataBestArrayList;
 
     private ViewFlipper viewFlipper;
-    int[] flipimages = {R.drawable.stat, R.drawable.ban, R.drawable.stat};
+    int[] flipimages = {R.drawable.mobilebanner1, R.drawable.mobilebanner2, R.drawable.mobilebanner1};
     Button btnfeaturedview;
     private ProgressDialog pd;
 
     private String Imagerc, Name, Value;
     private String Id;
 
-    private String FeaName, FeaImage, FeaPrice;
+    private String FeaName, FeaImage, FeaPrice,ProdId;
     private  String Qty,FavStatus;
     private  String BSName,BSFeaImage,BSFeaPrice;
 
@@ -179,6 +179,7 @@ public class HomeFragment extends Fragment {
                                 FeaPrice = object1.getString("rate");
                                 Qty = object1.getString("quantity_left");
                                 FavStatus = object1.getString("fav_status");
+                                ProdId = object1.getString("product_id");
 
 
                                 Dataa dataa= new Dataa();
@@ -186,8 +187,9 @@ public class HomeFragment extends Fragment {
                                 dataa.setName(FeaName);
                                 dataa.setValue(FeaPrice);
                                 dataa.setQtyLeft(Qty);
+                                dataa.setHoriPorId(ProdId);
                                 if (FavStatus.equals("1")){
-                                    dataa.setFavimage(R.drawable.favselectedicon);
+                                    dataa.setFavimage(R.drawable.ico);
                                 }else if (FavStatus.equals(0)){
                                     dataa.setFavimage(R.drawable.whislist);
                                 }
@@ -219,7 +221,7 @@ public class HomeFragment extends Fragment {
                                 dataBest.setQtyLeft(Qty);
 
                                 if (FavStatus.equals("1")){
-                                    dataBest.setFavimage(R.drawable.favselectedicon);
+                                    dataBest.setFavimage(R.drawable.ico);
                                 }else if (FavStatus.equals(0)){
                                     dataBest.setFavimage(R.drawable.whislist);
                                 }

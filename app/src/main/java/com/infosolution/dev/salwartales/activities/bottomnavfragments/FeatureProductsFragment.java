@@ -178,7 +178,7 @@ public class FeatureProductsFragment extends Fragment {
                                 customProductModel.setProId(ProId);
 
                                 if (FavStatus.equals("1")){
-                                    customProductModel.setFavimage(R.drawable.favselectedicon);
+                                    customProductModel.setFavimage(R.drawable.ico);
                                 }else if (FavStatus.equals(0)){
                                     customProductModel.setFavimage(R.drawable.whislist);
                                 }
