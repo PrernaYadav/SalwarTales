@@ -21,6 +21,7 @@ import android.widget.ViewFlipper;
 
 import com.infosolution.dev.salwartales.R;
 import com.infosolution.dev.salwartales.activities.ProductPageActivity;
+import com.infosolution.dev.salwartales.activities.SearchActivity;
 import com.infosolution.dev.salwartales.activities.adapters.HorizontalAdapterBestSeller;
 import com.infosolution.dev.salwartales.activities.model.DataBest;
 import com.infosolution.dev.salwartales.activities.model.Dataa;
@@ -46,14 +47,14 @@ import static android.widget.ImageView.ScaleType.FIT_XY;
 public class HomeFragment extends Fragment {
 
 
-    RecyclerView horizontal_recycler_view,rvbestseller;
-    HorizontalAdapter horizontalAdapter;
-    HorizontalAdapterBestSeller horizontalAdapterBestSeller;
+  private   RecyclerView horizontal_recycler_view,rvbestseller;
+    private  HorizontalAdapter horizontalAdapter;
+    private HorizontalAdapterBestSeller horizontalAdapterBestSeller;
     private ArrayList<Dataa> dataaArrayList;
     private ArrayList<DataBest> dataBestArrayList;
 
     private ViewFlipper viewFlipper;
-    int[] flipimages = {R.drawable.mobilebanner1, R.drawable.mobilebanner2, R.drawable.mobilebanner1};
+  //  int[] flipimages = {R.drawable.mobilebanner1, R.drawable.mobilebanner2, R.drawable.mobilebanner1};
     Button btnfeaturedview;
     private ProgressDialog pd;
 
@@ -63,6 +64,7 @@ public class HomeFragment extends Fragment {
     private String FeaName, FeaImage, FeaPrice,ProdId;
     private  String Qty,FavStatus;
     private  String BSName,BSFeaImage,BSFeaPrice;
+    private  TextView tvsearch;
 
 
 
@@ -78,6 +80,14 @@ public class HomeFragment extends Fragment {
 
         horizontal_recycler_view = (RecyclerView) v.findViewById(R.id.horizontal_recycler_view);
         rvbestseller = (RecyclerView) v.findViewById(R.id.rv_bestseller);
+        tvsearch=v.findViewById(R.id.tv_search);
+        tvsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnfeaturedview = v.findViewById(R.id.btn_featuredview);
         btnfeaturedview.setOnClickListener(new View.OnClickListener() {
@@ -93,14 +103,10 @@ public class HomeFragment extends Fragment {
 
         viewFlipper = v.findViewById(R.id.flipper);
         // loop for creating ImageView's
-        for (int i = 0; i < flipimages.length; i++) {
+
             // create the object of ImageView
             ImageView imageView = new ImageView(getContext());
-            imageView.setScaleType(FIT_XY);
-            imageView.setImageResource(flipimages[i]); // set image in ImageView
-            viewFlipper.addView(imageView); // add the created ImageView in ViewFlipper
 
-        }
         // Declare in and out animations and load them using AnimationUtils class
 
         Animation in = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);

@@ -215,6 +215,48 @@
                     android:layout_width="match_parent"
                     android:layout_height="240dp">
 
+
+                    <ImageView
+                        android:id="@+id/banner1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mobilebanner1"
+                        android:scaleType="fitXY"/>
+
+                    <ImageView
+                        android:id="@+id/banner2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mobilebanner2"
+                        android:scaleType="fitXY"/>
+
+                    <ImageView
+                        android:id="@+id/banner3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mobilebanner1"
+                        android:scaleType="fitXY"/>
+                    <ImageView
+                        android:id="@+id/banner4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mobilebanner2"
+                        android:scaleType="fitXY"/>
+
+                    <ImageView
+                        android:id="@+id/banner5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/mobilebanner1"
+                        android:scaleType="fitXY"/>
+
+
+
+
+
+
+
+
                 </ViewFlipper>
 
 
@@ -222,7 +264,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="#f6f3e2">
 
