@@ -45,6 +45,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+ivtwitter.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
 
+    }
+});
     }
 }
