@@ -38,7 +38,7 @@
         android:layout_alignParentRight="true"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:src="@drawable/cartoutline"
+        android:src="@drawable/cart"
         />
     </RelativeLayout>
 

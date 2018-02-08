@@ -2,6 +2,7 @@ package com.dev.salwartales.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
@@ -20,6 +22,12 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.dev.salwartales.R;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +46,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
  private   View view;
  private String url2;
 
-    private String url="http://salwartales.com/rests2/api_2.php?product_id=";
+    private String url="https://salwartales.com/rests2/api_2.php?product_id=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,11 +114,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
         btnbuynow=findViewById(R.id.btn_buynowdet);
 
 
-        pd = new ProgressDialog(ProductDetailsActivity.this);
-        pd.setMessage("loading");
-        pd.show();
-
+    //    new Dataa().execute();
         Loaddata();
+
+
 
         ivshare.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,110 +136,101 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
     private void Loaddata() {
+
+        pd = new ProgressDialog(ProductDetailsActivity.this);
+        pd.setMessage("loading");
+        pd.show();
+
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url2,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        pd.dismiss();
+                        //hiding the progressbar after completion
+                        Log.d("Response2", response.toString());
+                     //   Toast.makeText(ProductDetailsActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
 
-
-
-                    //    Toast.makeText(ProductDetailsActivity.this,response.toString(),Toast.LENGTH_LONG).show();
-                        Log.i("resPro",response.toString());
 
                         try {
+                            //getting the whole json object from the response
                             JSONObject jsono = new JSONObject(response);
                             JSONArray jarray = jsono.getJSONArray("data");
-
                             for (int i = 0; i < jarray.length(); i++) {
                                 JSONObject object = jarray.getJSONObject(i);
 
 
                                 jarray = jsono.getJSONArray("data");
-                                    JSONArray jarray1 = object.getJSONArray("product_description");
+                                JSONArray jarray1 = object.getJSONArray("product_description");
 
-                                    for (int j = 0; j < jarray1.length(); j++) {
-                                        JSONObject object1 = jarray1.getJSONObject(j);
+                                for (int j = 0; j < jarray1.length(); j++) {
+                                    JSONObject object1 = jarray1.getJSONObject(j);
 
-                                        ProName = object1.getString("product_name");
-                                        Price = object1.getString("rate");
-                                        ProImage= object1.getString("product_image");
-                                        FavStatus = object1.getString("fav_status");
-                                        Qty = object1.getString("quantity_left");
-                                        Available = object1.getString("availability");
-                                        Color = object1.getString("color");
-                                        Workdetail = object1.getString("work_details");
-                                        Occasion = object1.getString("occasion");
-                                        Fabric = object1.getString("fabric");
-                                        shape = object1.getString("shape");
-                                        WashCare = object1.getString("wash_care");
-                                        ProImage = object1.getString("product_image");
+                                    ProName = object1.getString("product_name");
+                                    Price = object1.getString("rate");
+                                    ProImage = object1.getString("product_image");
+                                    FavStatus = object1.getString("fav_status");
+                                    Qty = object1.getString("quantity_left");
+                                    Available = object1.getString("availability");
+                                    Color = object1.getString("color");
+                                    Workdetail = object1.getString("work_details");
+                                    Occasion = object1.getString("occasion");
+                                    Fabric = object1.getString("fabric");
+                                    shape = object1.getString("shape");
+                                    WashCare = object1.getString("wash_care");
+                                    ProImage = object1.getString("product_image");
 
-                                        pd.dismiss();
 
-                                        tvproname.setText(ProName);
-                                        tvprice.setText(Price);
-                                        tvcolor.setText(Color);
-                                        tvworkdetail.setText(Workdetail);
-                                        tvoccasion.setText(Occasion);
-                                        tvfabric.setText(Fabric);
-                                        tvshape.setText(shape);
-                                        tvwashcare.setText(WashCare);
-                                        if (FavStatus.equals("1")){
-                                            ivwish.setImageResource(R.drawable.ico);
-                                        }else {
-                                            ivwish.setImageResource(R.drawable.whislist);
-                                        }
 
-                                        if (Available.equals("1")){
-                                            tvavail.setText("In Stock");
-                                        }else {
-                                            tvavail.setText("Out Of Stock");
-                                        }
-
-                                        Glide.with(ProductDetailsActivity.this).load(ProImage).into(ivproimage);
+                                    tvproname.setText(ProName);
+                                    tvprice.setText(Price);
+                                    tvcolor.setText(Color);
+                                    tvworkdetail.setText(Workdetail);
+                                    tvoccasion.setText(Occasion);
+                                    tvfabric.setText(Fabric);
+                                    tvshape.setText(shape);
+                                    tvwashcare.setText(WashCare);
+                                    if (FavStatus.equals("1")) {
+                                        ivwish.setImageResource(R.drawable.ico);
+                                    } else {
+                                        ivwish.setImageResource(R.drawable.whislist);
                                     }
-                            }
+
+                                    if (Available.equals("1")) {
+                                        tvavail.setText("In Stock");
+                                    } else {
+                                        tvavail.setText("Out Of Stock");
+                                    }
+
+                                    Glide.with(ProductDetailsActivity.this).load(ProImage).into(ivproimage);
+                                }}
+
+
+
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-
-                     /*   Intent intent = new Intent(ProductDetailsActivity.this, LoginMailActivity.class);
-                        startActivity(intent);*/
-
-
-
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
-
-                        Toast.makeText(ProductDetailsActivity.this, error.toString(), Toast.LENGTH_LONG).show();
-
-//                       pdLoading.dismiss();
+                        //displaying the error in toast if occurrs
+                        pd.dismiss();
+                        Toast.makeText(getApplicationContext(), ""+error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }) {
-            @Override
-            protected Map<String, String> getParams() {
+                });
 
-                Map<String, String> params = new HashMap<String, String>();
+        //creating a request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(ProductDetailsActivity.this);
 
-               /* params.put("product_id", ProId);
-
-                Log.i("Detailsparam",""+params);*/
-
-
-
-                return params;
-            }
-
-        };
-
-        com.android.volley.RequestQueue requestQueue = Volley.newRequestQueue(this);
+        //adding the string request to request queue
         requestQueue.add(stringRequest);
 
 
     }
+
+
+
 }

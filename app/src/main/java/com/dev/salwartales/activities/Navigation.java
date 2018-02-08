@@ -14,7 +14,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.dev.salwartales.R;
+import com.dev.salwartales.activities.fragments.BestOfferFragment;
 import com.dev.salwartales.activities.fragments.HomeFragment;
+import com.dev.salwartales.activities.fragments.NewArrivelFragment;
 
 public class Navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -134,13 +136,43 @@ public class Navigation extends AppCompatActivity
 
         } else if (id == R.id.nav_bestoffer) {
 
+            setTitle("Best Offers");
+            NewArrivelFragment fragment =new NewArrivelFragment();
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame,fragment," ");
+            fragmentTransaction.commit();
+
         } else if (id == R.id.nav_Newarrivels) {
+
+            setTitle("Best Offers");
+            BestOfferFragment fragment =new BestOfferFragment();
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame,fragment," ");
+            fragmentTransaction.commit();
 
         }else if (id == R.id.nav_gown) {
 
+            setTitle("Best Offers");
+            BestOfferFragment fragment =new BestOfferFragment();
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame,fragment," ");
+            fragmentTransaction.commit();
+
         }else if (id == R.id.nav_lahnga) {
 
+            setTitle("Best Offers");
+            BestOfferFragment fragment =new BestOfferFragment();
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame,fragment," ");
+            fragmentTransaction.commit();
+
         } else if (id == R.id.nav_profile) {
+
+            setTitle("Best Offers");
+            BestOfferFragment fragment =new BestOfferFragment();
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame,fragment," ");
+            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_share) {
 

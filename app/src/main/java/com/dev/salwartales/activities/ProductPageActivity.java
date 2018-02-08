@@ -27,7 +27,7 @@ public class ProductPageActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_page);
 
-        view=findViewById(R.id.actionbar);
+        view=findViewById(R.id.actionbarr);
      ImageView ivback = findViewById(R.id.iv_back);
      ivback.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -40,7 +40,7 @@ public class ProductPageActivity extends AppCompatActivity  {
 
 
 
-        ImageView ivcart = findViewById(R.id.iv_back);
+        ImageView ivcart = findViewById(R.id.iv_customcart);
         ivcart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

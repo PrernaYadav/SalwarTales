@@ -1,10 +1,16 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/container_layout"
     tools:context="com.dev.salwartales.activities.fragments.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
     <ScrollView
@@ -51,6 +57,7 @@
                     android:weightSum="5">
 
                     <LinearLayout
+                        android:id="@+id/llbestoffr"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -59,9 +66,9 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/deal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/offer"
                             android:tint="@android:color/white" />
 
                         <TextView
@@ -70,11 +77,12 @@
                             android:layout_marginTop="5dp"
                             android:text="Best Offer"
                             android:textColor="@android:color/white"
-                            android:textSize="14sp" />
+                            android:textSize="10sp" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/llnewarr"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -83,9 +91,9 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/arrivalicon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ariv"
                             android:tint="@android:color/white" />
 
                         <TextView
@@ -94,12 +102,13 @@
                             android:layout_marginTop="5dp"
                             android:text="New Arrivels"
                             android:textColor="@android:color/white"
-                            android:textSize="14sp" />
+                            android:textSize="10sp" />
 
                     </LinearLayout>
 
 
                     <LinearLayout
+                        android:id="@+id/llgown"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -108,8 +117,8 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:src="@drawable/gownicon"
                             android:tint="@android:color/white" />
 
@@ -119,12 +128,13 @@
                             android:layout_marginTop="5dp"
                             android:text="Gown"
                             android:textColor="@android:color/white"
-                            android:textSize="14sp" />
+                            android:textSize="10sp" />
 
                     </LinearLayout>
 
 
                     <LinearLayout
+                        android:id="@+id/lllahnga"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -133,9 +143,9 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/choliicon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/choli"
                             android:tint="@android:color/white" />
 
                         <TextView
@@ -144,7 +154,7 @@
                             android:layout_marginTop="5dp"
                             android:text="Lahnga Choli"
                             android:textColor="@android:color/white"
-                            android:textSize="14sp" />
+                            android:textSize="10sp" />
 
                     </LinearLayout>
 
@@ -183,9 +193,9 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@drawable/mor" />
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/more" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -193,7 +203,7 @@
                             android:layout_marginTop="5dp"
                             android:text="More"
                             android:textColor="@android:color/white"
-                            android:textSize="14sp" />
+                            android:textSize="10sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -209,8 +219,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:scrollbars="none">
+                </android.support.v4.view.ViewPager>
 
-                <ViewFlipper
+
+               <!-- <ViewFlipper
                     android:id="@+id/flipper"
                     android:layout_width="match_parent"
                     android:layout_height="240dp">
@@ -249,15 +266,7 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/mobilebanner1"
                         android:scaleType="fitXY"/>
-
-
-
-
-
-
-
-
-                </ViewFlipper>
+                </ViewFlipper>-->
 
 
             </LinearLayout>
@@ -275,10 +284,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Featured Products"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                    />
 
                 <Button
                     android:id="@+id/btn_featuredview"
@@ -332,10 +341,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Best Seller"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"/>
 
                 <Button
                     android:id="@+id/btn_bestsellerview"
@@ -406,4 +414,5 @@
 
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+    </LinearLayout>
+</FrameLayout>

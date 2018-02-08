@@ -8,14 +8,16 @@
     tools:context="com.dev.salwartales.activities.ProductDetailsActivity">
 
     <include
-        android:id="@+id/actionbar"
+        android:id="@+id/actionbarr"
         layout="@layout/customactionbar" />
+
+
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/actionbar"
-        android:scrollbars="none">
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_below="@+id/actionbarr">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +26,7 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_proimagedet"
@@ -33,23 +35,27 @@
                     android:layout_marginBottom="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
+
                     android:background="@drawable/reactangle" />
-<LinearLayout
+<!--<LinearLayout
     android:layout_width="50dp"
     android:layout_height="50dp"
     android:layout_gravity="right|bottom"
     android:layout_marginBottom="30dp"
     android:layout_marginRight="30dp"
     android:gravity="center"
-    android:background="@drawable/circlee">
+    android:background="@drawable/circlee">-->
                 <ImageView
                     android:id="@+id/iv_wish"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/whislist" />
-</LinearLayout>
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                  android:layout_gravity="bottom|right"
+                    android:src="@drawable/whislist"
+                    android:padding="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/circlee"/>
+<!--</LinearLayout>-->
 
             </FrameLayout>
 
@@ -507,6 +513,7 @@ It's looks like deepika."
 
 
         </LinearLayout>
+
     </ScrollView>
 
 </RelativeLayout>

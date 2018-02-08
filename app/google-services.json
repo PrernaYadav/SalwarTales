@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "695709805810",
+    "firebase_url": "https://salwartales-1517824158127.firebaseio.com",
+    "project_id": "salwartales-1517824158127",
+    "storage_bucket": "salwartales-1517824158127.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695709805810:android:54397081fcd491e2",
+        "android_client_info": {
+          "package_name": "com.dev.salwartales"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695709805810-lbadghc7qbhgbttc3bd28qg6nub3n0lf.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "695709805810-egqsovt8qlt97trtfp9s5akba7rifk8n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dev.salwartales",
+            "certificate_hash": "3c55b8d2e4d5a04d4ef368bda61bb97d59e1a0d6"
+          }
+        },
+        {
+          "client_id": "695709805810-gsvm9bbal67q15n3sd8samjsi1rfcuvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa0JzwObGlhWEKXUi-dj9_cGRiNaExYiE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695709805810-lbadghc7qbhgbttc3bd28qg6nub3n0lf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
