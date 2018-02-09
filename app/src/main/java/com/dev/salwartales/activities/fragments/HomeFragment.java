@@ -91,7 +91,7 @@ public class HomeFragment extends Fragment {
     Timer timer;
     final long DELAY_MS = 300;//delay in milliseconds before task is to be executed
     final long PERIOD_MS = 5000; // time in milliseconds between successive task executions.
-    private LinearLayout llbestoffr,llnewarr,llgown,lllahnga;
+    private LinearLayout llbestoffr,llnewarr,llgown,lllahnga,llmore;
 
 
 
@@ -120,7 +120,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Fragment fragment= new NewArrivelFragment();
+                Fragment fragment= new GownFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.container_layout, fragment); // fragmen container id in first parameter is the  container(Main layout id) of Activity
                 transaction.addToBackStack(null);  // this will manage backstack
@@ -133,7 +133,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Fragment fragment= new NewArrivelFragment();
+                Fragment fragment= new LahngaFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.container_layout, fragment); // fragmen container id in first parameter is the  container(Main layout id) of Activity
                 transaction.addToBackStack(null);  // this will manage backstack
@@ -154,6 +154,24 @@ public class HomeFragment extends Fragment {
                 transaction.commit();
             }
         });
+
+
+
+
+        llmore=v.findViewById(R.id.llmore);
+        llmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Fragment fragment= new MoreFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.container_layout, fragment); // fragmen container id in first parameter is the  container(Main layout id) of Activity
+                transaction.addToBackStack(null);  // this will manage backstack
+                transaction.commit();
+            }
+        });
+
+
 
         List<DataObject> getData = dataSource();
         viewPager = (ViewPager)v.findViewById(R.id.viewpager);
@@ -204,6 +222,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), ProductPageActivity.class);
+                intent.putExtra("F","FEA");
                 startActivity(intent);
             }
         });
@@ -213,6 +232,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), ProductPageActivity.class);
+                intent.putExtra("Best","BEST");
                 startActivity(intent);
             }
         });

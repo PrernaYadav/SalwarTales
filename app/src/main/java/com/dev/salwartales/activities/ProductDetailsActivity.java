@@ -53,7 +53,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
 
-        view = findViewById(R.id.actionbar);
+        view = findViewById(R.id.actionbarr);
         ImageView ivback = findViewById(R.id.iv_back);
         ivback.setOnClickListener(new View.OnClickListener() {
             @Override

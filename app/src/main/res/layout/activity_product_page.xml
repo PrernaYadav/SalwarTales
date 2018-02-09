@@ -10,14 +10,14 @@
 
     <include
         layout="@layout/customactionbar"
-        android:id="@+id/actionbar"
+        android:id="@+id/actionbarbottom"
         />
 
     <FrameLayout
         android:id="@+id/framee"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/actionbar"
+        android:layout_below="@+id/actionbarbottom"
         android:layout_above="@+id/navigation"
         android:animateLayoutChanges="true">
 

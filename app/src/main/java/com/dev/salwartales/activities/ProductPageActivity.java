@@ -16,6 +16,7 @@ import com.dev.salwartales.R;
 import com.dev.salwartales.activities.adapters.BottomNavigationViewHelper;
 import com.dev.salwartales.activities.bottomnavfragments.FeatureProductsFragment;
 import com.dev.salwartales.activities.fragments.HomeFragment;
+import com.dev.salwartales.activities.fragments.MoreFragment;
 
 public class ProductPageActivity extends AppCompatActivity  {
 
@@ -27,7 +28,7 @@ public class ProductPageActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_page);
 
-        view=findViewById(R.id.actionbarr);
+        view=findViewById(R.id.actionbarbottom);
      ImageView ivback = findViewById(R.id.iv_back);
      ivback.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -84,9 +85,27 @@ public class ProductPageActivity extends AppCompatActivity  {
                                 break;
                             case R.id.categories:
                               //  selectedFragment = ItemTwoFragment.newInstance();
+
+                                view.setVisibility(View.GONE);
+                                setTitle("");
+                                MoreFragment moreFragment =new MoreFragment();
+                                FragmentTransaction fragmentTransactionmore= getSupportFragmentManager().beginTransaction();
+                                fragmentTransactionmore.replace(R.id.framee,moreFragment," ");
+                                fragmentTransactionmore.commit();
+
+
+
+
+
                                 break;
                             case R.id.deals:
-                             //   selectedFragment = ItemThreeFragment.newInstance();
+                                view.setVisibility(View.GONE);
+                                setTitle("");
+                                FeatureProductsFragment featureProductsFragment =new FeatureProductsFragment();
+                                FragmentTransaction fragmentTransactionfea= getSupportFragmentManager().beginTransaction();
+                                fragmentTransactionfea.replace(R.id.framee,featureProductsFragment," ");
+                                fragmentTransactionfea.commit();
+
                                 break;
                             case R.id.wishlist:
                                // selectedFragment = ItemTwoFragment.newInstance();
@@ -102,7 +121,7 @@ public class ProductPageActivity extends AppCompatActivity  {
                     }
                 });
 
-        setTitle("");
+        setTitle("Deals");
         FeatureProductsFragment fragment =new FeatureProductsFragment();
         FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.framee,fragment," ");

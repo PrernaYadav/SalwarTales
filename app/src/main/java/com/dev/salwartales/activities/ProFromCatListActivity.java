@@ -1,17 +1,14 @@
-package com.dev.salwartales.activities.fragments;
-
+package com.dev.salwartales.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -22,25 +19,18 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 import com.dev.salwartales.R;
-import com.dev.salwartales.activities.ProductDetailsActivity;
 import com.dev.salwartales.activities.adapters.CustomProductAdaptor;
 import com.dev.salwartales.activities.model.CustomProductModel;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class NewArrivelFragment extends Fragment {
-
+public class ProFromCatListActivity extends AppCompatActivity {
 
     private RecyclerView rcview;
     private RecyclerView rcviewlist;
@@ -48,53 +38,51 @@ public class NewArrivelFragment extends Fragment {
     private ArrayList<CustomProductModel> customProductModelArrayList;
     private ProgressDialog pd;
     private String Name, Image, Price,Qty,FavStatus,ProId;
-private     LinearLayout lllistgrid;
+    private LinearLayout lllistgrid;
+    private  String Id;
 
-  //  private String url="https://salwartales.com/rests2/api_3.php?category_id=59";
-
-
-
-   /* public NewArrivelFragment() {
-        // Required empty public constructor
-    }*/
-
+    String URL = "https://salwartales.com/rests2/api_3.php?category_id=";
+    private String URL2;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_new_arrivel, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pro_from_cat_list);
+
+        Intent intent= getIntent();
+        Id=intent.getStringExtra("ID");
+
+        URL2=URL+Id;
 
 
 
+        rcview=findViewById(R.id.rv_featuredprocatgrid);
+        rcviewlist=findViewById(R.id.rv_featuredprocatlist);
 
-        rcview=v.findViewById(R.id.rv_featurednewarrgrid);
-        rcviewlist=v.findViewById(R.id.rv_featurednewarrlist);
-
-        lllistgrid=v.findViewById(R.id.ll_listgridnewarr);
+        lllistgrid=findViewById(R.id.ll_listgridprocat);
 
 
         rcview.setVisibility(View.VISIBLE);
-        rcview.setLayoutManager(new LinearLayoutManager(getContext()));
+        rcview.setLayoutManager(new LinearLayoutManager(ProFromCatListActivity.this));
         rcview.setHasFixedSize(true);
-        rcview.addItemDecoration(new DividerItemDecoration(getActivity(),
+        rcview.addItemDecoration(new DividerItemDecoration(ProFromCatListActivity.this,
                 DividerItemDecoration.VERTICAL));
         int numberOfColumns = 2;
-        rcview.setLayoutManager(new GridLayoutManager(getContext(), numberOfColumns));
+        rcview.setLayoutManager(new GridLayoutManager(ProFromCatListActivity.this, numberOfColumns));
         rcview.setAdapter(customProductAdaptor);
         customProductModelArrayList= new ArrayList<>();
-        customProductAdaptor = new CustomProductAdaptor(customProductModelArrayList, getContext(), getActivity());
+        customProductAdaptor = new CustomProductAdaptor(customProductModelArrayList, ProFromCatListActivity.this, this);
 
 
 
 
-        rcviewlist.setLayoutManager(new LinearLayoutManager(getContext()));
+        rcviewlist.setLayoutManager(new LinearLayoutManager(ProFromCatListActivity.this));
         rcviewlist.setHasFixedSize(true);
-        rcviewlist.addItemDecoration(new DividerItemDecoration(getActivity(),
+        rcviewlist.addItemDecoration(new DividerItemDecoration(ProFromCatListActivity.this,
                 DividerItemDecoration.VERTICAL));
         rcviewlist.setAdapter(customProductAdaptor);
         customProductModelArrayList= new ArrayList<>();
-        customProductAdaptor = new CustomProductAdaptor(customProductModelArrayList, getContext(), getActivity());
+        customProductAdaptor = new CustomProductAdaptor(customProductModelArrayList, ProFromCatListActivity.this, this);
 
 
 
@@ -113,19 +101,14 @@ private     LinearLayout lllistgrid;
         });
 
 
-        GetDataNew();
-
-
-
-
-
-  return v;
+        GetDataa();
     }
 
-    public void GetDataNew() {
-        String URL = "https://salwartales.com/rests2/api_3.php?category_id=59";
+    private void GetDataa() {
+
+
         try {
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, URL2,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -147,7 +130,7 @@ private     LinearLayout lllistgrid;
                                             String Qty = object1.getString("quantity_left");
                                             String FavStatus = object1.getString("fav_status");
                                             String ProId = object1.getString("product_id");
-                                            System.out.println("OOOLAAALAAA : " + Name + Price + Qty + FavStatus + ProId+Image);
+                                            System.out.println("OOOLAAALAAABlouse : " + Name + Price + Qty + FavStatus + ProId+Image);
 
                                             CustomProductModel customProductModel = new CustomProductModel();
                                             customProductModel.setImage(Image);
@@ -172,7 +155,7 @@ private     LinearLayout lllistgrid;
 
 
                                 } else {
-                                    Toast.makeText(getContext(), "Something went wrong...", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ProFromCatListActivity.this, "Something went wrong...", Toast.LENGTH_SHORT).show();
                                 }
                             } catch (Exception ex) {
                                 System.out.println("EXCPTION IN SUCCESS OF LOGIN REQUEST : " + ex.toString());
@@ -196,18 +179,18 @@ private     LinearLayout lllistgrid;
                 }
             };
             stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                    16000,
+                    80000,
                     DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                     DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+            RequestQueue requestQueue = Volley.newRequestQueue(ProFromCatListActivity.this);
             requestQueue.add(stringRequest);
-            pd = new ProgressDialog(getContext());
+            pd = new ProgressDialog(ProFromCatListActivity.this);
             pd.setMessage("Loading...");
             pd.show();
         } catch (Exception ex) {
         }
+
+
+
     }
-
-
 }
-

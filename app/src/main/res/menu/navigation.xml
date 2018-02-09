@@ -6,7 +6,7 @@
         android:orderInCategory="100"
         android:title="Notification"
         android:icon="@drawable/bell"
-        android:iconTint="@android:color/white"
+        android:iconTint="@android:color/transparent"
         app:showAsAction="always" />
 
     <item

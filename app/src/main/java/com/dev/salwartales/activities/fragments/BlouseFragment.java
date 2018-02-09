@@ -8,7 +8,6 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,14 +21,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 import com.dev.salwartales.R;
-import com.dev.salwartales.activities.ProductDetailsActivity;
 import com.dev.salwartales.activities.adapters.CustomProductAdaptor;
 import com.dev.salwartales.activities.model.CustomProductModel;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -39,22 +35,17 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewArrivelFragment extends Fragment {
-
-
+public class BlouseFragment extends Fragment {
     private RecyclerView rcview;
     private RecyclerView rcviewlist;
     private CustomProductAdaptor customProductAdaptor;
     private ArrayList<CustomProductModel> customProductModelArrayList;
     private ProgressDialog pd;
     private String Name, Image, Price,Qty,FavStatus,ProId;
-private     LinearLayout lllistgrid;
-
-  //  private String url="https://salwartales.com/rests2/api_3.php?category_id=59";
+    private LinearLayout lllistgrid;
 
 
-
-   /* public NewArrivelFragment() {
+   /* public BlouseFragment() {
         // Required empty public constructor
     }*/
 
@@ -63,15 +54,13 @@ private     LinearLayout lllistgrid;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_new_arrivel, container, false);
+        View v= inflater.inflate(R.layout.fragment_blouse, container, false);
 
 
+        rcview=v.findViewById(R.id.rv_featuredblousegrid);
+        rcviewlist=v.findViewById(R.id.rv_featuredblouselist);
 
-
-        rcview=v.findViewById(R.id.rv_featurednewarrgrid);
-        rcviewlist=v.findViewById(R.id.rv_featurednewarrlist);
-
-        lllistgrid=v.findViewById(R.id.ll_listgridnewarr);
+        lllistgrid=v.findViewById(R.id.ll_listgridblouse);
 
 
         rcview.setVisibility(View.VISIBLE);
@@ -113,17 +102,14 @@ private     LinearLayout lllistgrid;
         });
 
 
-        GetDataNew();
+        GetDatablouse();
 
-
-
-
-
-  return v;
+        return v;
     }
 
-    public void GetDataNew() {
-        String URL = "https://salwartales.com/rests2/api_3.php?category_id=59";
+    private void GetDatablouse() {
+
+        String URL = "https://salwartales.com/rests2/api_3.php?category_id=62";
         try {
             StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
                     new Response.Listener<String>() {
@@ -147,7 +133,7 @@ private     LinearLayout lllistgrid;
                                             String Qty = object1.getString("quantity_left");
                                             String FavStatus = object1.getString("fav_status");
                                             String ProId = object1.getString("product_id");
-                                            System.out.println("OOOLAAALAAA : " + Name + Price + Qty + FavStatus + ProId+Image);
+                                            System.out.println("OOOLAAALAAABlouse : " + Name + Price + Qty + FavStatus + ProId+Image);
 
                                             CustomProductModel customProductModel = new CustomProductModel();
                                             customProductModel.setImage(Image);
@@ -196,7 +182,7 @@ private     LinearLayout lllistgrid;
                 }
             };
             stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                    16000,
+                    50000,
                     DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                     DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             RequestQueue requestQueue = Volley.newRequestQueue(getContext());
@@ -206,8 +192,8 @@ private     LinearLayout lllistgrid;
             pd.show();
         } catch (Exception ex) {
         }
+
+
     }
 
-
 }
-

@@ -23,4 +23,7 @@
     <string name="search">Search For Products and Brands</string>
 
 
+    <string name="facebook_app_id">151196722257299</string>
+    <string name="fb_login_protocol_scheme">fb151196722257299</string>
+
 </resources>

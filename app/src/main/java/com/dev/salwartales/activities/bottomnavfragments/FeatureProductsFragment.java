@@ -2,6 +2,7 @@ package com.dev.salwartales.activities.bottomnavfragments;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -38,6 +41,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,7 +55,10 @@ public class FeatureProductsFragment extends Fragment {
     private ArrayList<CustomProductModel> customProductModelArrayList;
     private ProgressDialog pd;
     private String Name, Image, Price,Qty,FavStatus,ProId;
-    LinearLayout lllistgrid;
+    private LinearLayout lllistgrid;
+    private String KEY;
+    private String URL;
+
 
 
 
@@ -67,6 +75,20 @@ public class FeatureProductsFragment extends Fragment {
         View v= inflater.inflate(R.layout.fragment_featured_products, container, false);
         rcview=v.findViewById(R.id.rv_featuredpro);
         rcviewlist=v.findViewById(R.id.rv_featuredprolist);
+
+
+        Intent intent = getActivity().getIntent();
+        KEY = intent.getStringExtra("F");
+        if (TextUtils.isEmpty(KEY)){
+            KEY = intent.getStringExtra("Best");
+        }
+
+
+        if (KEY.equals("FEA")){
+           URL = "https://salwartales.com/rests2/api_11.php";
+        }else if (KEY.equals("BEST")){
+            URL = "https://salwartales.com/rests2/api_3.php?category_id=63";
+        }
 
         lllistgrid=v.findViewById(R.id.ll_listgrid);
 
@@ -117,82 +139,89 @@ GetData();
 
 
 public void GetData(){
-    pd = new ProgressDialog(getContext());
-    pd.setMessage("loading");
-    pd.show();
 
-    StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://salwartales.com/rests2/api_11.php",
-            new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
+    try {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        pd.dismiss();
+                        System.out.println("Response is : " + response);
+                        try {
+                            JSONObject jsono = new JSONObject(response);
+                            if (jsono.getString("status").equals("success")) {
+                                JSONArray jarray = jsono.getJSONArray("data");
+                                for (int i = 0; i < jarray.length(); i++) {
+                                    JSONObject object = jarray.getJSONObject(i);
+                                    jarray = jsono.getJSONArray("data");
+                                    JSONArray jarray1 = object.getJSONArray("product_description");
+                                    for (int j = 0; j < jarray1.length(); j++) {
+                                        JSONObject object1 = jarray1.getJSONObject(j);
+                                        String Name = object1.getString("product_name");
+                                        String Image = object1.getString("product_image");
+                                        String Price = object1.getString("rate");
+                                        String Qty = object1.getString("quantity_left");
+                                        String FavStatus = object1.getString("fav_status");
+                                        String ProId = object1.getString("product_id");
+                                        System.out.println("OOOLAAALAAABlouse : " + Name + Price + Qty + FavStatus + ProId+Image);
 
-                    pd.dismiss();
-                    //hiding the progressbar after completion
-                    Log.d("Response2", response.toString());
-                 //   Toast.makeText(getContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                                        CustomProductModel customProductModel = new CustomProductModel();
+                                        customProductModel.setImage(Image);
+                                        customProductModel.setName(Name);
+                                        customProductModel.setValue(Price);
+                                        customProductModel.setQtyLeft(Qty);
+                                        customProductModel.setProId(ProId);
 
+                                        if (FavStatus.equals("1")) {
+                                            customProductModel.setFavimage(R.drawable.hartcolor);
+                                        } else if (FavStatus.equals(0)) {
+                                            customProductModel.setFavimage(R.drawable.whislist);
+                                        }
 
-                    try {
-                        //getting the whole json object from the response
-                        JSONObject jsono = new JSONObject(response);
-                        JSONArray jarray = jsono.getJSONArray("data");
-
-                        for (int i = 0; i < jarray.length(); i++) {
-                            JSONObject object = jarray.getJSONObject(i);
-
-                            jarray = jsono.getJSONArray("data");
-                            JSONArray jarray1 = object.getJSONArray("product_description");
-
-                            for (int j = 0; j < jarray1.length(); j++) {
-                                JSONObject object1 = jarray1.getJSONObject(j);
-
-                                Name = object1.getString("product_name");
-                                Image = object1.getString("product_image");
-                                Price = object1.getString("rate");
-                                Qty = object1.getString("quantity_left");
-                                FavStatus = object1.getString("fav_status");
-                                ProId = object1.getString("product_id");
-
-
-                                CustomProductModel customProductModel = new CustomProductModel();
-                                customProductModel.setImage(Image);
-                                customProductModel.setName(Name);
-                                customProductModel.setValue(Price);
-                                customProductModel.setQtyLeft(Qty);
-                                customProductModel.setProId(ProId);
-
-                                if (FavStatus.equals("1")) {
-                                    customProductModel.setFavimage(R.drawable.hartcolor);
-                                } else if (FavStatus.equals(0)) {
-                                    customProductModel.setFavimage(R.drawable.whislist);
+                                        customProductModelArrayList.add(customProductModel);
+                                    }
                                 }
 
-                                customProductModelArrayList.add(customProductModel);
+                                rcview.setAdapter(customProductAdaptor);
+                                rcviewlist.setAdapter(customProductAdaptor);
+                                customProductAdaptor.notifyDataSetChanged();
+
+
+                            } else {
+                                Toast.makeText(getContext(), "Something went wrong...", Toast.LENGTH_SHORT).show();
                             }
+                        } catch (Exception ex) {
+                            System.out.println("EXCPTION IN SUCCESS OF LOGIN REQUEST : " + ex.toString());
                         }
-
-                        rcview.setAdapter(customProductAdaptor);
-                        rcviewlist.setAdapter(customProductAdaptor);
-                        customProductAdaptor.notifyDataSetChanged();
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
                     }
-                }
-            },
-            new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    //displaying the error in toast if occurrs
-                    Toast.makeText(getContext(), ""+error.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        pd.dismiss();
+                        System.out.println("ERROR IN LOGIN STRING REQUEST : " + error.getMessage());
+                    }
 
-    //creating a request queue
-    RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+                })
 
-    //adding the string request to request queue
-    requestQueue.add(stringRequest);
+        {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                return params;
+            }
+        };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                50000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue.add(stringRequest);
+        pd = new ProgressDialog(getContext());
+        pd.setMessage("Loading...");
+        pd.show();
+    } catch (Exception ex) {
+    }
 
 }
 }

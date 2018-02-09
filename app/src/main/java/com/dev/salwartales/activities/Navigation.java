@@ -15,7 +15,12 @@ import android.widget.TextView;
 
 import com.dev.salwartales.R;
 import com.dev.salwartales.activities.fragments.BestOfferFragment;
+import com.dev.salwartales.activities.fragments.BlouseFragment;
+import com.dev.salwartales.activities.fragments.CLUTCHESFragment;
+import com.dev.salwartales.activities.fragments.GownFragment;
 import com.dev.salwartales.activities.fragments.HomeFragment;
+import com.dev.salwartales.activities.fragments.KurtiFragment;
+import com.dev.salwartales.activities.fragments.LahngaFragment;
 import com.dev.salwartales.activities.fragments.NewArrivelFragment;
 
 public class Navigation extends AppCompatActivity
@@ -137,42 +142,79 @@ public class Navigation extends AppCompatActivity
         } else if (id == R.id.nav_bestoffer) {
 
             setTitle("Best Offers");
-            NewArrivelFragment fragment =new NewArrivelFragment();
+            BestOfferFragment fragment =new BestOfferFragment();
             FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frame,fragment," ");
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_Newarrivels) {
-
-            setTitle("Best Offers");
-            BestOfferFragment fragment =new BestOfferFragment();
+            setTitle("New Arrivel");
+            NewArrivelFragment fragment =new NewArrivelFragment();
             FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frame,fragment," ");
             fragmentTransaction.commit();
+
+        }else if (id == R.id.nav_saree) {
+
+
+
+        }else if (id == R.id.nav_salkameez) {
+
+
 
         }else if (id == R.id.nav_gown) {
 
-            setTitle("Best Offers");
-            BestOfferFragment fragment =new BestOfferFragment();
+            setTitle("New Arrivel");
+            GownFragment fragment =new GownFragment();
             FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frame,fragment," ");
             fragmentTransaction.commit();
+
+
 
         }else if (id == R.id.nav_lahnga) {
 
-            setTitle("Best Offers");
-            BestOfferFragment fragment =new BestOfferFragment();
+            setTitle("Kurti");
+            LahngaFragment fragment =new LahngaFragment();
             FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frame,fragment," ");
             fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_profile) {
 
-            setTitle("Best Offers");
-            BestOfferFragment fragment =new BestOfferFragment();
+
+        } else if (id == R.id.nav_kurti) {
+
+            setTitle("Kurti");
+            KurtiFragment fragment =new KurtiFragment();
             FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frame,fragment," ");
             fragmentTransaction.commit();
+
+
+
+        } else if (id == R.id.nav_clutches) {
+
+            setTitle("Clutches");
+            CLUTCHESFragment fragment =new CLUTCHESFragment();
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame,fragment," ");
+            fragmentTransaction.commit();
+
+
+
+        }
+        else if (id == R.id.nav_blouse) {
+
+            setTitle("Blouse");
+            BlouseFragment fragment =new BlouseFragment();
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame,fragment," ");
+            fragmentTransaction.commit();
+
+
+        }else if (id == R.id.nav_profile) {
+
+
 
         } else if (id == R.id.nav_share) {
 
