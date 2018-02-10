@@ -22,18 +22,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="20dp"
+        >
 
         <ImageView
             android:id="@+id/iv_facebook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@drawable/facebookicon"/>
 
 
         <ImageView
             android:id="@+id/iv_google"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+           android:layout_marginLeft="20dp"
+            android:src="@drawable/googleicon"/>
 
     </LinearLayout>
 

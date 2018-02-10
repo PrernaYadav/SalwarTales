@@ -4,6 +4,7 @@ package com.dev.salwartales.activities.fragments;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -48,6 +50,8 @@ public class BestOfferFragment extends Fragment {
     private String url="https://salwartales.com/rests2/api_3.php?category_id=";
     private  String url2;
 
+    private ImageView iv;
+
 
     /*public BestOfferFragment() {
         // Required empty public constructor
@@ -58,10 +62,14 @@ public class BestOfferFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().setTitle("Best Offer");
         View v= inflater.inflate(R.layout.fragment_best_offer, container, false);
+//        container.removeAllViews();
 
         rcview=v.findViewById(R.id.rv_featuredbestoffergrid);
         rcviewlist=v.findViewById(R.id.rv_featuredbestofferlist);
+
+
 
         lllistgrid=v.findViewById(R.id.ll_listgridbest);
 
@@ -109,6 +117,16 @@ public class BestOfferFragment extends Fragment {
 
     return v;
     }
+    // on back press to go to homefragment
+
+    /*@Override
+    public void onDetach() {
+        super.onDetach();
+       getActivity().finish();
+    }*/
+
+
+
 
     private void GetData() {
         pd = new ProgressDialog(getContext());

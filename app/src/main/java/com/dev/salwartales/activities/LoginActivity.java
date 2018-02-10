@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     private ImageView ivfb, ivtwitter;
     private TextView tvforgotpass, tvsignup;
     private ProgressDialog pdLoading;
-    private  String Email,Password;
+    private  String email,password;
     CallbackManager callbackManager;
     private static final String email_pattern =
             "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
@@ -100,29 +100,25 @@ public class LoginActivity extends AppCompatActivity {
         ivfb = findViewById(R.id.iv_fb);
         ivtwitter = findViewById(R.id.iv_gmail);
 
-        btnsignin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+      btnsignin.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              email=etuser.getText().toString();
+              password=etpass.getText().toString();
 
-                Email=etuser.getText().toString();
-                Password=etpass.getText().toString();
+              Matcher matcherObj = Pattern.compile(email_pattern).matcher(email);
 
-                Matcher matcherObj = Pattern.compile(email_pattern).matcher(Email);
-
-                if (!matcherObj.matches()) {
-                    etuser.setError("Invalid Email");
-                } else if (etpass.getText().toString().trim().length() < 0) {
-                    etpass.setError("Password Length is short");
-                }else {
-                    Login();
-                }
-
+              if (!matcherObj.matches()) {
+                  etuser.setError("Invalid Email");
+              } else if (etpass.getText().toString().trim().length() < 0) {
+                  etpass.setError("Password Length is short");
+              } else {
+                  Login();
+              }
 
 
-
-
-            }
-        });
+          }
+      });
 
 
     }
@@ -137,55 +133,88 @@ public class LoginActivity extends AppCompatActivity {
         pdLoading.setCancelable(false);
         pdLoading.show();
 
+        String URL="https://salwartales.com/rests2/api_5.php";
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://salwartales.com/rests2/api_5.php",
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.i("sigresss",""+response.toString());
+                        Log.e("pppppppppp", response);
                         pdLoading.dismiss();
+                        Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
+
                         try {
-                            JSONObject jsono = new JSONObject(response);
-                            String status = jsono.getString("status");
 
-                            if (status.equals("Success"))
-                            {
 
-                                JSONArray jarray = jsono.getJSONArray("record");
-                                for (int i = 0; i < jarray.length(); i++) {
-                                    JSONObject object = jarray.getJSONObject(i);
+                            JSONObject result = new JSONObject(response);
+                            String status = result.getString("status");
+                            Log.i("status",""+status);
+
+
+                            if (status.equals("success")){
+                                JSONArray routearray = result.getJSONArray("data");
+                                for (int i=0;i<routearray.length();i++){
+
+                                    JSONObject object = routearray.getJSONObject(i);
+
+                                    Log.i("type",""+object.getString("product_type"));
+
+                                    JSONArray routearray1 = object.getJSONArray("product_description");
+                                    for (int j=0; j<routearray1.length();j++){
+
+                                        JSONObject object1 = routearray1.getJSONObject(j);
+
+                                    String   Userid = object1.getString("user_id");
+                                        String   Country= object1.getString("country");
+                                        String  First = object1.getString("firstname");
+                                        String   Last= object1.getString("lastname");
+                                        Log.i("DAta",""+Userid + Country + First + Last);
+
+
+                                        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("detfromlogin", Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("userid", Userid);
+                                        editor.putString("country", Country);
+                                        editor.putString("first", First);
+                                        editor.putString("last", Last);
+                                        editor.commit();
+
+                                        Intent intent=new Intent(LoginActivity.this,Navigation.class);
+                                        startActivity(intent);
+
+
+                                    }
 
                                 }
-                                // Toast.makeText(LoginMailActivity.this, "successs", Toast.LENGTH_LONG).show();
-
+                            }else {
+                                Toast.makeText(LoginActivity.this, "Please Check Your Login Credantial", Toast.LENGTH_SHORT).show();
                             }
-                            else
-                            {
-                                Toast.makeText(LoginActivity.this,"Please Check Your Login Credential.", Toast.LENGTH_LONG).show();
 
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+
+                        }catch (Exception e){
+
                         }
+
+
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                      //  Toast.makeText(LoginActivity.this, ""+error.toString(), Toast.LENGTH_LONG).show();
                         pdLoading.dismiss();
-                        Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_LONG).show();
-
-                      pdLoading.dismiss();
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() {
 
+
                 Map<String, String> params = new HashMap<String, String>();
 
-                params.put("email", Email);
-                params.put("password", Password);
-                Log.i("userpar",""+params);
+                params.put("email",email );
+                params.put("password",password );
+
+                Log.i("params",""+params);
 
 
                 return params;
@@ -199,7 +228,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
+
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -213,10 +245,18 @@ public class LoginActivity extends AppCompatActivity {
                     public void onCompleted(
                             JSONObject json_object,
                             GraphResponse response) {
-                        Intent intent = new Intent(LoginActivity.this, UserProfile.class);
-                        intent.putExtra("userProfile", json_object.toString());
+                        Intent intent = new Intent(LoginActivity.this, Navigation.class);
                         startActivity(intent);
                         Log.i("userProfile", json_object.toString());
+
+
+                        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("detfromfb", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("det", json_object.toString());
+                        editor.commit();
+
+
+
                     }
 
                 });

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="3"
-        android:padding="7dp"
+        android:padding="3dp"
         android:background="@android:color/white"
         android:orientation="horizontal">
 
@@ -25,13 +25,13 @@
             android:padding="5dp">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:src="@drawable/grid_icon" />
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/list_icon" />
 
@@ -39,7 +39,7 @@
 
         <View
             android:layout_width="0.2dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
             android:background="#99808080" />
 
@@ -54,8 +54,8 @@
             android:layout_weight="1">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:src="@drawable/short_con"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
         </LinearLayout>
         <View
             android:layout_width="0.2dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
             android:background="#99808080" />
         <LinearLayout
@@ -79,8 +79,8 @@
             android:layout_weight="1">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:src="@drawable/filter_cion"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -95,6 +95,22 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.2dp"
+        android:layout_gravity="center"
+        android:background="#99808080" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Featured Product"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="5dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_marginRight="20dp"
+        android:gravity="center_horizontal"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:background="#99808080" />
 

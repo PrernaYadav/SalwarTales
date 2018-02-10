@@ -2,13 +2,17 @@ package com.dev.salwartales.activities.fragments;
 
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.KeyListener;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,13 +63,13 @@ private     LinearLayout lllistgrid;
     }*/
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_new_arrivel, container, false);
-
-
+        container.removeAllViews();
 
 
         rcview=v.findViewById(R.id.rv_featurednewarrgrid);
@@ -121,6 +125,16 @@ private     LinearLayout lllistgrid;
 
   return v;
     }
+
+    /*// on back press to go to homefragment
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        getActivity().finish();
+    }*/
+
+
 
     public void GetDataNew() {
         String URL = "https://salwartales.com/rests2/api_3.php?category_id=59";
@@ -206,7 +220,12 @@ private     LinearLayout lllistgrid;
             pd.show();
         } catch (Exception ex) {
         }
+
     }
+
+
+
+
 
 
 }

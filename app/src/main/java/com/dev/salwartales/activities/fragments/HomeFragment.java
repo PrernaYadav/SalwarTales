@@ -95,11 +95,13 @@ public class HomeFragment extends Fragment {
 
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+
 
         llbestoffr=v.findViewById(R.id.llbestoffr);
         llbestoffr.setOnClickListener(new View.OnClickListener() {
@@ -109,7 +111,7 @@ public class HomeFragment extends Fragment {
                 Fragment fragment= new BestOfferFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.container_layout, fragment); // fragmen container id in first parameter is the  container(Main layout id) of Activity
-                transaction.addToBackStack(null);  // this will manage backstack
+             //   transaction.addToBackStack(null);  // this will manage backstack
                 transaction.commit();
             }
         });
@@ -123,7 +125,7 @@ public class HomeFragment extends Fragment {
                 Fragment fragment= new GownFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.container_layout, fragment); // fragmen container id in first parameter is the  container(Main layout id) of Activity
-                transaction.addToBackStack(null);  // this will manage backstack
+               // transaction.addToBackStack(null);  // this will manage backstack
                 transaction.commit();
             }
         });
@@ -136,7 +138,7 @@ public class HomeFragment extends Fragment {
                 Fragment fragment= new LahngaFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.container_layout, fragment); // fragmen container id in first parameter is the  container(Main layout id) of Activity
-                transaction.addToBackStack(null);  // this will manage backstack
+           //     transaction.addToBackStack(null);  // this will manage backstack
                 transaction.commit();
             }
         });
@@ -150,7 +152,7 @@ public class HomeFragment extends Fragment {
                 Fragment fragment= new NewArrivelFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.container_layout, fragment); // fragmen container id in first parameter is the  container(Main layout id) of Activity
-                transaction.addToBackStack(null);  // this will manage backstack
+               // transaction.addToBackStack(null);  // this will manage backstack
                 transaction.commit();
             }
         });
@@ -166,7 +168,7 @@ public class HomeFragment extends Fragment {
                 Fragment fragment= new MoreFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.container_layout, fragment); // fragmen container id in first parameter is the  container(Main layout id) of Activity
-                transaction.addToBackStack(null);  // this will manage backstack
+             //   transaction.addToBackStack(null);  // this will manage backstack
                 transaction.commit();
             }
         });
@@ -287,6 +289,14 @@ GetData();
 
         return v;
     }
+
+  /*  @Override
+    public void onDetach() {
+        super.onDetach();
+       getActivity().finish();
+    }*/
+
+
     public void GetData(){
 
         pd = new ProgressDialog(getContext());
@@ -427,7 +437,9 @@ GetData();
         List<DataObject> data = new ArrayList<DataObject>();
         data.add(new DataObject(R.drawable.mobilebanner1));
         data.add(new DataObject(R.drawable.mobilebanner2));
-        data.add(new DataObject(R.drawable.stat));
+        data.add(new DataObject(R.drawable.mobilebanner1));
         return data;
     }
+
+
 }

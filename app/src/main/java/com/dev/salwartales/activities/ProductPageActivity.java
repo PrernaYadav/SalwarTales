@@ -2,13 +2,19 @@ package com.dev.salwartales.activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationMenuView;
+import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,10 +66,24 @@ public class ProductPageActivity extends AppCompatActivity  {
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
 
+        //reducing icon size
+        BottomNavigationMenuView menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
+        for (int i = 0; i < menuView.getChildCount(); i++) {
+            final View iconView = menuView.getChildAt(i).findViewById(android.support.design.R.id.icon);
+            final ViewGroup.LayoutParams layoutParams = iconView.getLayoutParams();
+            final DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+            layoutParams.height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, displayMetrics);
+            layoutParams.width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, displayMetrics);
+            iconView.setLayoutParams(layoutParams);
+        }
+
+        //desable animation
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+
 
        /* NavigationMenuView navigationMenuView= (NavigationMenuView) bottomNavigationView.getChildAt(0);
         navigationMenuView.addItemDecoration(new DividerItemDecoration(ProductPageActivity.this,DividerItemDecoration.VERTICAL));*/
-        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+//        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener

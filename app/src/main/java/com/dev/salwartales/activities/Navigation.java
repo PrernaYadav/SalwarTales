@@ -21,6 +21,7 @@ import com.dev.salwartales.activities.fragments.GownFragment;
 import com.dev.salwartales.activities.fragments.HomeFragment;
 import com.dev.salwartales.activities.fragments.KurtiFragment;
 import com.dev.salwartales.activities.fragments.LahngaFragment;
+import com.dev.salwartales.activities.fragments.MyProfileFragment;
 import com.dev.salwartales.activities.fragments.NewArrivelFragment;
 
 public class Navigation extends AppCompatActivity
@@ -33,6 +34,9 @@ public class Navigation extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
+
+
+
 
 
         tvcart=findViewById(R.id.badge_notification2);
@@ -83,10 +87,6 @@ public class Navigation extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.navigation, menu);
-
-
-
-
 
 
         return super.onCreateOptionsMenu(menu);
@@ -213,6 +213,12 @@ public class Navigation extends AppCompatActivity
 
 
         }else if (id == R.id.nav_profile) {
+
+
+            MyProfileFragment fragment =new MyProfileFragment();
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.frame,fragment," ");
+            fragmentTransaction.commit();
 
 
 

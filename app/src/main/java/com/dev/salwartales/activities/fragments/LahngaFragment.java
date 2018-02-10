@@ -4,6 +4,7 @@ package com.dev.salwartales.activities.fragments;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -57,6 +58,7 @@ public class LahngaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_lahnga, container, false);
+        container.removeAllViews();
 
         rcview=v.findViewById(R.id.rv_featuredlahngagrid);
         rcviewlist=v.findViewById(R.id.rv_featuredlahngalist);
@@ -108,6 +110,15 @@ public class LahngaFragment extends Fragment {
 
         return v;
     }
+
+
+    // on back press to go to homefragment
+
+   /* @Override
+    public void onDetach() {
+        super.onDetach();
+        getActivity().finish();
+    }*/
 
     private void GetDatalahnga() {
 
