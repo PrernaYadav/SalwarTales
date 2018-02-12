@@ -111,13 +111,13 @@ public class Navigation extends AppCompatActivity
             return true;
         }
 
-        if (id == R.id.action_notification) {
+       /* if (id == R.id.action_notification) {
 
             Intent intent = new Intent(Navigation.this,LoginActivity.class);
             startActivity(intent);
 
             return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }

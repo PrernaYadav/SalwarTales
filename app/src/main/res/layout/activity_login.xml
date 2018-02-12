@@ -143,18 +143,36 @@
                 android:textColor="@android:color/transparent"
                 android:foregroundTint="@android:color/transparent"
                 android:drawableTintMode="add"
+
                />
 
 
-            <ImageView
-                android:id="@+id/iv_gmail"
+           <!-- <ImageView
+                android:id="@+id/iv_gmai"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/iv_fb"
-                android:src="@drawable/google_img" />
+                android:src="@drawable/google_img" />-->
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/iv_gmail"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginLeft="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/iv_fb"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+              />
+
+
+
 
             <TextView
                 android:id="@+id/tv_fp"
